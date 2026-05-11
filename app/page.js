@@ -1,11 +1,13 @@
 import Hero from "@/components/home/Hero";
-import Clients from "@/components/home/Clients";
+
 import About from "@/components/home/About";
-import WhyChooseUs from "@/components/home/WhyChooseUs";
+
 import Industries from "@/components/home/Industries";
-//import Services from "@/components/home/Services";
-//import Projects from "@/components/home/Projects";
-import CTA from "@/components/home/CTA";
+import Services from "@/components/home/Services";
+import Products from "@/components/home/Products";
+import Projects from "@/components/home/Projects";
+import Clients from "@/components/home/Clients";
+
 
 export default function Home() {
   return (
@@ -14,27 +16,30 @@ export default function Home() {
       {/* Hero Section */}
       <Hero />
 
-      {/* Clients Logos */}
-      <Clients />
+     
 
       {/* About Company */}
       <About />
 
-    
+    {/* services */}
+      <Services />
+
+     {/* products */}
+      <Products />
 
      
-
-      {/* Why Choose Us */}
-      <WhyChooseUs />
 
         {/* Industries We Serve */}
       <Industries />
 
-  
+      
+        {/* projects */}
+      <Projects />
 
-      {/* Call To Action */}
-      <CTA />
+   {/* Clients Logos */}
+      <Clients />
 
+     
     </main>
   );
 }

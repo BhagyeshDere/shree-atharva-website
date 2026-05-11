@@ -1,9 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ShieldCheck, Target, Award } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ShieldCheck, Target, Award, ArrowDownRight } from "lucide-react";
+import { useRef } from "react";
 
 export default function About() {
+  const containerRef = useRef(null);
   const stats = [
     { label: "Years of Excellence", value: "10+", icon: Award },
     { label: "Projects Completed", value: "500+", icon: Target },
@@ -11,109 +13,129 @@ export default function About() {
   ];
 
   return (
-    <section className="relative py-24 md:py-32 bg-white overflow-hidden">
-      {/* Decorative Brand Accent (Background) */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-[#1A52A2]/5 -skew-x-12 translate-x-20 pointer-events-none" />
+    <section ref={containerRef} className="relative py-24 md:py-40 bg-[#f8fafc] overflow-hidden">
+      
+      {/* Background Architectural Elements */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none">
+        <div className="absolute inset-0" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%231A52A2' stroke-width='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }} />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        
+        {/* CENTRALIZED HEADER SECTION */}
+        <div className="text-center mb-20 md:mb-32 relative">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-[#DA1F28] font-black uppercase tracking-[0.5em] text-xs mb-4 block"
+          >
+            Engineering Security Since 2014
+          </motion.span>
           
-          {/* LEFT SIDE: Image Composition (Advanced Grid) */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative grid grid-cols-6 grid-rows-6 gap-4 h-[500px] md:h-[650px]">
-              
-              {/* Main Large Image */}
+          <div className="relative inline-block">
+            <h2 className="relative z-10 text-5xl md:text-8xl font-black text-[#0a132e] tracking-tighter uppercase leading-[0.8] mb-4">
+              Building a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1A52A2] to-[#1A52A2]/60">Safer</span> <br />
+              Future Together
+            </h2>
+            {/* Background Outline Text */}
+            <span className="absolute -top-10 left-1/2 -translate-x-1/2 text-[8rem] md:text-[14rem] font-black text-slate-200/40 select-none -z-10 tracking-tighter uppercase hidden md:block">
+              PROTECT
+            </span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* LEFT: Staggered Image Composition */}
+          <div className="lg:col-span-7 relative">
+            <div className="relative h-[450px] md:h-[600px] w-full">
+              {/* Main Image */}
               <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="col-span-5 row-span-5 relative overflow-hidden rounded-sm shadow-2xl"
+                className="absolute top-0 left-0 w-4/5 h-[85%] rounded-sm overflow-hidden shadow-2xl z-10 border-8 border-white"
               >
                 <img 
                   src="/images/about/about-main.png" 
                   alt="Industrial Fire Safety"
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-[#1A52A2]/10 mix-blend-multiply" />
-              </motion.div>
-
-              {/* Secondary Floating Image */}
-              <motion.div 
-                initial={{ opacity: 0, x: 20, y: 20 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ delay: 0.3 }}
-                viewport={{ once: true }}
-                className="col-start-4 col-span-3 row-start-4 row-span-3 z-10 border-[12px] border-white shadow-2xl overflow-hidden"
-              >
-                <img 
-                  src="/images/about/about-secondary.png" 
-                  alt="Testing & Commissioning"
                   className="w-full h-full object-cover"
                 />
               </motion.div>
 
-              {/* Brand Geometric Accent */}
-              <div className="absolute -top-6 -left-6 w-24 h-24 border-t-4 border-l-4 border-[#DA1F28]" />
-              <div className="absolute bottom-12 -right-4 w-16 h-16 bg-[#DA1F28] -z-10" />
+              {/* Decorative Accent behind main image */}
+              <div className="absolute top-12 left-12 w-4/5 h-[85%] bg-[#1A52A2] -z-10 opacity-10 rounded-sm" />
+
+              {/* Floating Secondary Image */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4 }}
+                viewport={{ once: true }}
+                className="absolute bottom-0 right-0 w-3/5 h-1/2 rounded-sm overflow-hidden shadow-2xl z-20 border-[6px] border-white"
+              >
+                <img 
+                  src="/images/about/about-secondary.png" 
+                  alt="Testing"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
             </div>
           </div>
 
-          {/* RIGHT SIDE: Content */}
-          <div className="lg:col-span-6 space-y-8">
+          {/* RIGHT: Sophisticated Content Block */}
+          <div className="lg:col-span-5 lg:pl-8 flex flex-col justify-center h-full pt-10 lg:pt-0">
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              className="space-y-8"
             >
-              <div className="flex items-center gap-4 mb-4">
-                <span className="h-[2px] w-12 bg-[#DA1F28]" />
-                <span className="text-[#DA1F28] font-black uppercase tracking-[0.3em] text-xs">
-                  Est. 2014
-                </span>
-              </div>
-
-              <h2 className="text-4xl md:text-6xl font-black text-[#0a132e] tracking-tighter leading-none uppercase">
-                Building a <span className="text-[#1A52A2]">Safer</span> <br />
-                Future Together
-              </h2>
-
-              <div className="mt-8 space-y-6">
-                <p className="text-xl text-slate-800 font-bold leading-tight">
+              <div className="space-y-6">
+                <p className="text-2xl text-slate-900 font-extrabold leading-tight tracking-tight">
                   Shree Atharva Enterprises is a Government Approved Licensed Agency 
-                  leading fire safety engineering across Maharashtra.
+                  defining safety standards.
                 </p>
                 
-                <p className="text-slate-600 leading-relaxed text-lg">
+                <p className="text-slate-600 leading-relaxed text-lg border-l-4 border-[#DA1F28] pl-6 italic">
                   We specialize in the end-to-end Supply, Installation, Testing, and Commissioning 
-                  of advanced fire protection systems. Our expertise spans across Industrial complexes, 
-                  Healthcare facilities, and Government institutions, ensuring every infrastructure 
-                  is resilient against fire hazards.
+                  of advanced fire protection systems across Industrial and Government sectors.
                 </p>
               </div>
 
-              {/* Stats Row */}
-              <div className="grid grid-cols-3 gap-4 pt-10 border-t border-slate-100">
+              {/* Stats Grid - High End Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
                 {stats.map((stat, idx) => (
-                  <div key={idx} className="text-center md:text-left">
-                    <stat.icon className="w-6 h-6 text-[#1A52A2] mb-2 mx-auto md:mx-0" />
-                    <h4 className="text-2xl font-black text-[#0a132e]">{stat.value}</h4>
-                    <p className="text-[10px] uppercase font-bold tracking-widest text-slate-400">
+                  <motion.div 
+                    key={idx}
+                    whileHover={{ y: -5 }}
+                    className="bg-white p-6 shadow-xl shadow-slate-200/50 rounded-xl border border-slate-100 flex flex-col items-center sm:items-start"
+                  >
+                    <stat.icon className="w-5 h-5 text-[#DA1F28] mb-3" />
+                    <h4 className="text-3xl font-black text-[#0a132e] tabular-nums">{stat.value}</h4>
+                    <p className="text-[9px] uppercase font-bold tracking-[0.2em] text-slate-400 mt-1">
                       {stat.label}
                     </p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-              
-              {/* Call to Action Link */}
-              <div className="pt-10">
-                <button className="group flex items-center gap-4 text-[#1A52A2] font-black uppercase tracking-widest text-sm">
-                  Download Company Profile
-                  <span className="w-10 h-[2px] bg-[#DA1F28] group-hover:w-16 transition-all" />
-                </button>
-              </div>
+
+            
             </motion.div>
           </div>
 
+        </div>
+      </div>
+      
+      {/* Scroll Vertical Bar */}
+      <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-4">
+        <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest rotate-90 origin-center mb-10">Atharva Safety</span>
+        <div className="w-[1px] h-32 bg-slate-200 relative overflow-hidden">
+          <motion.div 
+            animate={{ y: [0, 128] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            className="absolute top-0 left-0 w-full h-8 bg-[#DA1F28]"
+          />
         </div>
       </div>
     </section>
