@@ -13,7 +13,8 @@ export default function About() {
   ];
 
   return (
-    <section ref={containerRef} className="relative py-24 md:py-40 bg-[#f8fafc] overflow-hidden">
+    // Reduced padding from py-24/py-40 to py-16/py-28
+    <section ref={containerRef} className="relative py-16 md:py-28 bg-[#f8fafc] overflow-hidden">
       
       {/* Background Architectural Elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none">
@@ -22,8 +23,8 @@ export default function About() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        {/* CENTRALIZED HEADER SECTION */}
-        <div className="text-center mb-20 md:mb-32 relative">
+        {/* CENTRALIZED HEADER SECTION - Reduced margin-bottom */}
+        <div className="text-center mb-16 md:mb-20 relative">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -46,9 +47,9 @@ export default function About() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* LEFT: Staggered Image Composition */}
+          {/* LEFT: Staggered Image Composition - Reduced height from 450/600 to 380/500 */}
           <div className="lg:col-span-7 relative">
-            <div className="relative h-[450px] md:h-[600px] w-full">
+            <div className="relative h-[380px] md:h-[500px] w-full">
               {/* Main Image */}
               <motion.div 
                 initial={{ opacity: 0, x: -50 }}
@@ -64,7 +65,7 @@ export default function About() {
               </motion.div>
 
               {/* Decorative Accent behind main image */}
-              <div className="absolute top-12 left-12 w-4/5 h-[85%] bg-[#1A52A2] -z-10 opacity-10 rounded-sm" />
+              <div className="absolute top-10 left-10 w-4/5 h-[85%] bg-[#1A52A2] -z-10 opacity-10 rounded-sm" />
 
               {/* Floating Secondary Image */}
               <motion.div 
@@ -83,44 +84,42 @@ export default function About() {
             </div>
           </div>
 
-          {/* RIGHT: Sophisticated Content Block */}
-          <div className="lg:col-span-5 lg:pl-8 flex flex-col justify-center h-full pt-10 lg:pt-0">
+          {/* RIGHT: Sophisticated Content Block - Reduced gap and padding */}
+          <div className="lg:col-span-5 lg:pl-8 flex flex-col justify-center h-full pt-6 lg:pt-0">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="space-y-8"
+              className="space-y-6"
             >
-              <div className="space-y-6">
-                <p className="text-2xl text-slate-900 font-extrabold leading-tight tracking-tight">
+              <div className="space-y-4">
+                <p className="text-xl md:text-2xl text-slate-900 font-extrabold leading-tight tracking-tight">
                   Shree Atharva Enterprises is a Government Approved Licensed Agency 
                   defining safety standards.
                 </p>
                 
-                <p className="text-slate-600 leading-relaxed text-lg border-l-4 border-[#DA1F28] pl-6 italic">
+                <p className="text-slate-600 leading-relaxed text-base border-l-4 border-[#DA1F28] pl-6 italic">
                   We specialize in the end-to-end Supply, Installation, Testing, and Commissioning 
                   of advanced fire protection systems across Industrial and Government sectors.
                 </p>
               </div>
 
               {/* Stats Grid - High End Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
                 {stats.map((stat, idx) => (
                   <motion.div 
                     key={idx}
                     whileHover={{ y: -5 }}
-                    className="bg-white p-6 shadow-xl shadow-slate-200/50 rounded-xl border border-slate-100 flex flex-col items-center sm:items-start"
+                    className="bg-white p-5 shadow-xl shadow-slate-200/50 rounded-xl border border-slate-100 flex flex-col items-center sm:items-start"
                   >
-                    <stat.icon className="w-5 h-5 text-[#DA1F28] mb-3" />
-                    <h4 className="text-3xl font-black text-[#0a132e] tabular-nums">{stat.value}</h4>
+                    <stat.icon className="w-5 h-5 text-[#DA1F28] mb-2" />
+                    <h4 className="text-2xl font-black text-[#0a132e] tabular-nums">{stat.value}</h4>
                     <p className="text-[9px] uppercase font-bold tracking-[0.2em] text-slate-400 mt-1">
                       {stat.label}
                     </p>
                   </motion.div>
                 ))}
               </div>
-
-            
             </motion.div>
           </div>
 
@@ -130,11 +129,11 @@ export default function About() {
       {/* Scroll Vertical Bar */}
       <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-4">
         <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest rotate-90 origin-center mb-10">Atharva Safety</span>
-        <div className="w-[1px] h-32 bg-slate-200 relative overflow-hidden">
+        <div className="w-[1px] h-24 bg-slate-200 relative overflow-hidden">
           <motion.div 
-            animate={{ y: [0, 128] }}
+            animate={{ y: [0, 96] }}
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 left-0 w-full h-8 bg-[#DA1F28]"
+            className="absolute top-0 left-0 w-full h-6 bg-[#DA1F28]"
           />
         </div>
       </div>

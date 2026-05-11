@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, ArrowRight, Activity } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Activity } from "lucide-react";
 
 export default function Contact() {
   const offices = [
@@ -11,7 +11,7 @@ export default function Contact() {
       address: "J-308, 2nd Floor, Mega Center, Hadapsar, Pune - 411028",
       phone: "+91 9422504471",
       email: "atharvaent101@gmail.com",
-      color: "bg-[#1A52A2]/10 border-l-[6px] border-l-[#1A52A2] border-y-slate-200 border-r-slate-200",
+      color: "bg-[#f0f4fa] border-l-[6px] border-l-[#1A52A2] border-y-slate-200 border-r-slate-200",
       accent: "#1A52A2"
     },
     {
@@ -20,7 +20,7 @@ export default function Contact() {
       address: "Road no 3, Vyankatesh Nagar, Ambajogai Road, Latur - 413512",
       phone: "+91 8484003636",
       email: "atharvaent101@gmail.com",
-      color: "bg-[#DA1F28]/10 border-l-[6px] border-l-[#DA1F28] border-y-slate-200 border-r-slate-200",
+      color: "bg-[#fef2f2] border-l-[6px] border-l-[#DA1F28] border-y-slate-200 border-r-slate-200",
       accent: "#DA1F28"
     }
   ];
@@ -34,21 +34,21 @@ export default function Contact() {
         <div className="absolute bottom-20 left-[-10%] w-[500px] h-[500px] bg-red-50 rounded-full blur-[120px]" />
       </div>
 
-      {/* 1. HERO HEADER (FULL WIDTH) */}
-      <div className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden">
+      {/* 1. HERO HEADER */}
+      <div className="relative h-[60vh] md:h-[75vh] w-full overflow-hidden">
         <img 
           src="/images/about/about-main.png" 
           className="w-full h-full object-cover"
           alt="Safety Engineering"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a132e]/90 via-[#0a132e]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a132e]/90 via-[#0a132e]/50 to-transparent md:bg-gradient-to-r" />
         
         <div className="absolute inset-0 flex items-center">
-          <div className="max-w-7xl mx-auto w-full px-6 md:px-10">
+          <div className="max-w-7xl mx-auto w-full px-6 md:px-10 pb-32 md:pb-20">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="max-w-3xl"
+              className="max-w-4xl"
             >
               <div className="flex items-center gap-2 mb-6">
                 <Activity className="text-[#DA1F28]" size={20} />
@@ -63,20 +63,21 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 mt-16 md:mt-24 pb-24">
+      {/* 2. OVERLAPPING CONTENT (POSITIONED SLIGHTLY DOWNSIDE) */}
+      <div className="relative max-w-7xl mx-auto px-6 -mt-20 md:-mt-32 z-20 pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* 2. COLORFUL IMPROVED CARDS (LEFT) */}
+          {/* SOLID CARDS (LEFT) */}
           <div className="lg:col-span-5 space-y-8">
             {offices.map((office, idx) => (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 }}
-                className={`${office.color} p-8 md:p-10 rounded-2xl border shadow-sm relative group hover:shadow-2xl transition-all duration-500`}
+                transition={{ delay: idx * 0.1, duration: 0.6 }}
+                className={`${office.color} p-8 md:p-10 rounded-2xl border shadow-xl relative group hover:shadow-2xl transition-all duration-500`}
               >
-                <div className="absolute -top-4 -right-4 bg-white shadow-lg w-14 h-14 rounded-full flex items-center justify-center border border-slate-100">
+                <div className="absolute -top-4 -right-4 bg-white shadow-lg w-14 h-14 rounded-full flex items-center justify-center border border-slate-100 z-10">
                   <MapPin style={{ color: office.accent }} size={24} />
                 </div>
                 
@@ -84,7 +85,7 @@ export default function Contact() {
                 <h3 className="text-3xl font-black text-[#0a132e] uppercase mb-6">{office.city}</h3>
                 
                 <div className="space-y-6">
-                  <p className="text-slate-700 font-semibold leading-relaxed">{office.address}</p>
+                  <p className="text-slate-700 font-bold leading-relaxed">{office.address}</p>
                   <div className="flex flex-wrap gap-3">
                     <div className="bg-white px-5 py-2 rounded-full border border-slate-200 flex items-center gap-3 shadow-sm">
                       <Phone size={14} style={{ color: office.accent }} />
@@ -100,11 +101,12 @@ export default function Contact() {
             ))}
           </div>
 
-          {/* 3. ULTRA-MODERN FORM (RIGHT) */}
+          {/* FORM (RIGHT) */}
           <motion.div 
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="lg:col-span-7 bg-white p-8 md:p-16 rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.06)] border border-slate-100"
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 bg-white p-8 md:p-16 rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.1)] border border-slate-100"
           >
             <div className="mb-12">
               <h4 className="text-3xl font-black text-[#0a132e] uppercase tracking-tighter">Inquiry Terminal</h4>
@@ -135,7 +137,7 @@ export default function Contact() {
           </motion.div>
         </div>
 
-        {/* 4. PADDED MAP SECTION (ALIGNING WITH CONTENT) */}
+        {/* 4. MAP SECTION */}
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -148,18 +150,16 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Map Container with standard padding via parent's max-w-7xl */}
-          <div className="h-[500px] md:h-[600px] w-full relative group overflow-hidden rounded-3xl shadow-2xl border border-slate-100">
+          <div className="h-[500px] md:h-[600px] w-full relative group overflow-hidden rounded-3xl shadow-2xl border border-slate-100 bg-white">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121059.04712330!2d73.862967!3d18.520430!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67414521%3A0xd60dca512c051!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.513524660855!2d73.92383827595353!3d18.505718769632497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1967269666f%3A0xc341857905d496a7!2sMega%20Center!5e0!3m2!1sen!2sin!4v1715431234567!5m2!1sen!2sin" 
               className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-1000" 
               allowFullScreen="" 
               loading="lazy" 
             />
             
-            {/* Floating Label */}
             <div className="absolute bottom-8 right-8 hidden md:block">
-              <div className="bg-[#0a132e] text-white p-6 rounded-xl shadow-2xl max-w-[260px] backdrop-blur-sm bg-opacity-95">
+              <div className="bg-[#0a132e] text-white p-6 rounded-xl shadow-2xl max-w-[260px] border border-white/10">
                 <p className="text-[10px] font-black uppercase tracking-widest text-blue-400 mb-2">Navigation Node</p>
                 <p className="text-xs font-medium text-slate-300 leading-relaxed">Interactive terminal. Select a location to trigger route calculation.</p>
               </div>

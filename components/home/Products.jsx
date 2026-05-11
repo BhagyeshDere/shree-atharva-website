@@ -2,68 +2,50 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, ShieldCheck, Zap, Droplets, Bell, Settings } from "lucide-react";
+import { ShieldCheck, Zap, Droplets, Bell, ArrowUpRight } from "lucide-react";
 
 const products = [
   {
     id: "01",
     title: "Fire Extinguishers",
     desc: "Reliable fire extinguishers for industrial, commercial and residential safety requirements.",
-    img: "/images/products/fir5.png",
-    link: "/products#extinguishers",
-    icon: <ShieldCheck size={24} />,
+    img: "/images/products/product.png",
+    icon: <ShieldCheck />,
     brandColor: "#DA1F28",
-    panelGradient: "from-red-50 to-red-100/50",
   },
   {
     id: "02",
     title: "Hydrant System",
     desc: "Complete hydrant system with pipes, valves, hose cabinets, pumps and safety fittings.",
     img: "/images/products/product2.png",
-    link: "/products#hydrant",
-    icon: <Zap size={24} />,
+    icon: <Zap />,
     brandColor: "#1A52A2",
-    panelGradient: "from-blue-50 to-blue-100/50",
   },
   {
     id: "03",
     title: "Sprinkler System",
     desc: "Automatic sprinkler solutions designed for fast response and effective fire control.",
     img: "/images/products/product3.png",
-    link: "/products#sprinkler",
-    icon: <Droplets size={24} />,
-    brandColor: "#1A52A2",
-    panelGradient: "from-cyan-50 to-cyan-100/50",
+    icon: <Droplets />,
+    brandColor: "#0ea5e9",
   },
   {
     id: "04",
     title: "Fire Alarm System",
     desc: "Detection and alarm systems for early warning, monitoring and emergency response.",
     img: "/images/products/product4.png",
-    link: "/products#alarm",
-    icon: <Bell size={24} />,
-    brandColor: "#DA1F28",
-    panelGradient: "from-rose-50 to-rose-100/50",
-  },
-  {
-    id: "05",
-    title: "Water Flow Control Valves",
-    desc: "High-quality valves for controlled water flow, pressure management and system safety.",
-    img: "/images/products/product5.png",
-    link: "/products#valves",
-    icon: <Settings size={24} />,
-    brandColor: "#475569",
-    panelGradient: "from-slate-100 to-slate-200/50",
+    icon: <Bell />,
+    brandColor: "#e11d48",
   },
 ];
 
 export default function Products() {
   return (
-    <section className="relative py-24 bg-white" id="products">
+    <section className="relative py-24 bg-[#f8fafc]" id="products">
       <div className="container mx-auto px-6">
         
         {/* Header Section */}
-        <div className="max-w-4xl mb-16 md:mb-24">
+        <div className="max-w-4xl mb-16 md:mb-20">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -88,71 +70,93 @@ export default function Products() {
           {products.map((product, index) => (
             <div 
               key={product.id} 
-              className="sticky top-24 md:top-28 w-full mb-10 md:mb-16"
+              className="sticky top-24 md:top-28 w-full mb-12 md:mb-16"
               style={{ zIndex: index + 1 }}
             >
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-50px" }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="relative w-full bg-white rounded-[2.5rem] md:rounded-[4rem] overflow-hidden border border-slate-200 flex flex-col lg:flex-row min-h-[480px] md:min-h-[580px]"
-              >
-                
-                {/* Left Info Section - Gradient Background */}
-                <div className={`w-full lg:w-[45%] p-8 md:p-16 flex flex-col justify-between relative z-10 bg-gradient-to-br ${product.panelGradient}`}>
-                  <div>
-                    <div className="flex items-center gap-4 mb-8">
-                      <div 
-                        className="w-12 h-12 rounded-xl flex items-center justify-center text-white"
-                        style={{ backgroundColor: product.brandColor }}
-                      >
-                        {product.icon}
-                      </div>
-                      <span className="font-mono text-sm font-bold text-[#0a132e]/40 tracking-widest uppercase">
-                        S-Series // 0{index + 1}
-                      </span>
-                    </div>
-
-                    <h3 className="text-4xl md:text-6xl font-black text-[#0a132e] uppercase tracking-tighter leading-none mb-6">
-                      {product.title}
-                    </h3>
-                    
-                    <p className="text-[#0a132e]/70 text-base md:text-lg font-medium leading-relaxed max-w-sm">
-                      {product.desc}
-                    </p>
-                  </div>
-
-                 
-
-                  <div className="hidden lg:block absolute bottom-16 right-0 origin-bottom-right -rotate-90 translate-x-4 opacity-10 pointer-events-none">
-                    <span className="text-4xl font-black uppercase tracking-tighter" style={{ color: product.brandColor }}>
-                      Industrial Grade
-                    </span>
-                  </div>
-                </div>
-
-                {/* Right Image Section - Clean Simple White (Numbers Removed) */}
-                <div className="w-full lg:w-[55%] relative flex items-center justify-center p-8 md:p-12 bg-white">
-                  <motion.div
-                    whileHover={{ y: -5, scale: 1.02 }}
-                    transition={{ type: "spring", stiffness: 100 }}
-                    className="relative z-10 w-full h-full flex items-center justify-center"
-                  >
+              {/* Outer Shadow Container */}
+              <div className="relative drop-shadow-[0_30px_50px_rgba(0,0,0,0.15)] md:drop-shadow-[0_50px_80px_rgba(0,0,0,0.25)]">
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, margin: "-50px" }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative w-full h-[450px] md:h-[550px] rounded-[2rem] md:rounded-[3.5rem] overflow-hidden group bg-slate-200"
+                >
+                  
+                  {/* 1. FULL SIZE BACKGROUND IMAGE - Reduced Zoom */}
+                  <div className="absolute inset-0 z-0 overflow-hidden">
                     <img
                       src={product.img}
                       alt={product.title}
-                      className="max-w-[85%] max-h-[320px] md:max-h-[450px] object-contain"
+                      // Changed scale from 1.1 to 1.02 for a more natural look
+                      className="w-full h-full object-cover scale-[1.02] transition-transform duration-1000 ease-out group-hover:scale-105"
                     />
-                  </motion.div>
-                </div>
-              </motion.div>
+                    
+                    {/* TEXT READABILITY GRADIENTS */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent z-10" />
+                    
+                    {/* Radial Scrim for Text Backdrop */}
+                    <div className="absolute bottom-0 left-0 w-full h-2/3 opacity-95 z-10 pointer-events-none" 
+                         style={{ background: 'radial-gradient(circle at bottom left, rgba(0,0,0,0.9) 0%, transparent 80%)' }} />
+                  </div>
+
+                  {/* 2. OVERLAY CONTENT */}
+                  <div className="relative z-20 h-full w-full flex flex-col justify-end p-8 md:p-12 lg:p-16">
+                    
+                    <div className="max-w-2xl">
+                      {/* Badge & Icon */}
+                      <div className="flex items-center gap-4 mb-4 md:mb-6">
+                        <div 
+                          className="w-10 h-10 md:w-14 md:h-14 rounded-xl flex items-center justify-center text-white shadow-xl backdrop-blur-md"
+                          style={{ backgroundColor: `${product.brandColor}E6` }} 
+                        >
+                          {React.cloneElement(product.icon, { size: 24 })}
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="font-mono text-[9px] md:text-[10px] font-bold text-white/70 tracking-[0.3em] uppercase">
+                            S-Series // Protocol 0{product.id}
+                          </span>
+                          <span className="text-white font-bold tracking-widest text-xs md:text-sm uppercase">
+                            Certified Protection
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none mb-4">
+                        {product.title}
+                      </h3>
+                      
+                      {/* Description */}
+                      <p className="text-white/90 text-sm md:text-lg font-medium leading-relaxed max-w-lg mb-8 border-l-2 border-white/40 pl-5">
+                        {product.desc}
+                      </p>
+
+                      {/* Action Button */}
+                      <motion.button 
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-flex items-center gap-3 bg-white text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-black uppercase text-[10px] md:text-xs tracking-widest shadow-2xl hover:bg-[#DA1F28] hover:text-white transition-all duration-300"
+                      >
+                        View Specs <ArrowUpRight size={16} />
+                      </motion.button>
+                    </div>
+
+                    {/* Large Stylized Background Number */}
+                    <div className="absolute bottom-6 right-10 opacity-10 pointer-events-none hidden lg:block">
+                      <span className="text-[15rem] font-black text-white leading-none">
+                        {product.id}
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full h-px bg-slate-100" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-slate-200" />
     </section>
   );
 }
