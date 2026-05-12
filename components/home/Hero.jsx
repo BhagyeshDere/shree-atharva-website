@@ -14,19 +14,19 @@ export default function Hero() {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover opacity-50"
+          className="w-full h-full object-cover opacity-60" // Increased opacity slightly for clearer visuals
         >
           <source src="/videos/fire_bg1.mp4" type="video/mp4" />
         </video>
         
-        {/* PRIMARY GRADIENT */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/30 to-transparent z-[1] w-[70%]" />
+        {/* REFINED PRIMARY GRADIENT - Concentrated only on the left text area */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/60 to-transparent z-[1] w-full md:w-[50%]" />
         
-        {/* REFINED RED GLOW */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(218,31,40,0.1)_0%,_transparent_40%)] z-[1]" />
+        {/* LIGHTER RED GLOW - Positioned away from center */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(218,31,40,0.08)_0%,_transparent_35%)] z-[1]" />
         
-        {/* SUBTLE BOTTOM VIGNETTE */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/60 via-transparent to-transparent z-[1]" />
+        {/* BOTTOM VIGNETTE - Subtle and low profile */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/40 via-transparent to-transparent z-[1] h-1/2 mt-auto" />
       </div>
 
       {/* Content Container */}
@@ -105,8 +105,6 @@ export default function Hero() {
           <div className="w-[1px] h-12 bg-gradient-to-b from-[#1A52A2] via-[#DA1F28] to-transparent opacity-60 relative" />
         </motion.div>
       </div>
-
-      {/* Line removed from here */}
     </section>
   );
 }

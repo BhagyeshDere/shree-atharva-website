@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Activity } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Activity, Navigation } from "lucide-react";
 
 export default function Contact() {
   const offices = [
     {
       city: "Pune",
       type: "Main Hub",
-      address: "J-308, 2nd Floor, Mega Center, Hadapsar, Pune - 411028",
+      address: "J-308, 2nd Floor, Mega Center, Pune - Solapur Road, Hadapsar, Pune - 411028",
       phone: "+91 9422504471",
       email: "atharvaent101@gmail.com",
       color: "bg-[#f0f4fa] border-l-[6px] border-l-[#1A52A2] border-y-slate-200 border-r-slate-200",
@@ -63,7 +63,7 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* 2. OVERLAPPING CONTENT (POSITIONED SLIGHTLY DOWNSIDE) */}
+      {/* 2. OVERLAPPING CONTENT */}
       <div className="relative max-w-7xl mx-auto px-6 -mt-20 md:-mt-32 z-20 pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
@@ -131,13 +131,13 @@ export default function Contact() {
               </div>
 
               <button className="group w-full bg-[#0a132e] hover:bg-[#1A52A2] text-white py-6 rounded-full font-black uppercase tracking-[0.3em] text-[10px] flex items-center justify-center gap-4 transition-all duration-500 shadow-xl">
-                Execute Send <Send size={16} className="group-hover:translate-x-2 transition-transform" />
+                Send <Send size={16} className="group-hover:translate-x-2 transition-transform" />
               </button>
             </form>
           </motion.div>
         </div>
 
-        {/* 4. MAP SECTION */}
+        {/* 4. MAP SECTION WITH CORNER ADDRESS */}
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -150,18 +150,22 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="h-[500px] md:h-[600px] w-full relative group overflow-hidden rounded-3xl shadow-2xl border border-slate-100 bg-white">
+          <div className="h-[500px] md:h-[650px] w-full relative group overflow-hidden rounded-[2rem] shadow-2xl border border-slate-100 bg-white">
+            {/* Map Frame */}
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.513524660855!2d73.92383827595353!3d18.505718769632497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1967269666f%3A0xc341857905d496a7!2sMega%20Center!5e0!3m2!1sen!2sin!4v1715431234567!5m2!1sen!2sin" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.568341640538!2d73.9118128751912!3d18.503254982587523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1966568600d%3A0xf639999684784a0d!2sMega%20Center%2C%20Hadapsar%2C%20Pune%2C%20Maharashtra%20411028!5e0!3m2!1sen!2sin!4v1715520000000!5m2!1sen!2sin" 
               className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-1000" 
               allowFullScreen="" 
               loading="lazy" 
             />
             
+          
+
+            {/* Subtle Overlay Badge */}
             <div className="absolute bottom-8 right-8 hidden md:block">
-              <div className="bg-[#0a132e] text-white p-6 rounded-xl shadow-2xl max-w-[260px] border border-white/10">
-                <p className="text-[10px] font-black uppercase tracking-widest text-blue-400 mb-2">Navigation Node</p>
-                <p className="text-xs font-medium text-slate-300 leading-relaxed">Interactive terminal. Select a location to trigger route calculation.</p>
+              <div className="bg-white/90 backdrop-blur-sm text-[#0a132e] px-4 py-2 rounded-full border border-slate-200 shadow-xl flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-ping" />
+                <span className="text-[9px] font-black uppercase tracking-tighter">Live Systems Tracking</span>
               </div>
             </div>
           </div>

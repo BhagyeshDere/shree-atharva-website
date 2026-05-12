@@ -44,27 +44,25 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="relative w-full py-24 bg-[#020617] overflow-hidden text-white">
-      {/* BACKGROUND VIDEO LAYER */}
+    <section className="relative w-full py-24  overflow-hidden text-white">
+      {/* BACKGROUND VIDEO LAYER - RESTORED ORIGINAL COLORS */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover opacity-50 grayscale-[0.2]"
+          className="w-full h-full object-cover opacity-60" // Removed grayscale and updated opacity
         >
           <source src="/videos/services.mp4" type="video/mp4" />
         </video>
         
-        {/* LEFT BLUE GRADIENT */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,_rgba(26,82,162,0.25)_0%,_transparent_50%)] z-[1]" />
+        {/* SUBTLE OVERLAY FOR TEXT LEGIBILITY */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/80 via-[#020617]/40 to-[#020617]/80 z-[1]" />
         
-        {/* RIGHT RED GRADIENT */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,_rgba(218,31,40,0.2)_0%,_transparent_50%)] z-[1]" />
-        
-        {/* SUBTLE OVERLAY FOR READABILITY */}
-        <div className="absolute inset-0 bg-[#020617]/30 z-[1]" />
+        {/* MINIMAL COLOR ACCENTS */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,_rgba(26,82,162,0.1)_0%,_transparent_50%)] z-[1]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,_rgba(218,31,40,0.1)_0%,_transparent_50%)] z-[1]" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -83,7 +81,7 @@ export default function Services() {
           <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-6">
             Services We <span className="text-[#1A52A2]">Offer</span>
           </h2>
-          <p className="text-white/80 max-w-xl font-medium drop-shadow-md">
+          <p className="text-white max-w-xl font-medium drop-shadow-lg">
             Complete fire prevention, protection, compliance and maintenance services.
           </p>
         </div>
@@ -91,7 +89,7 @@ export default function Services() {
         {/* FLOW WRAPPER */}
         <div className="relative max-w-6xl mx-auto">
           {/* Central Connecting Line (Desktop) */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-[#1A52A2] via-[#DA1F28] to-[#1A52A2] opacity-30 hidden lg:block" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-[#1A52A2]/30 via-[#DA1F28]/30 to-[#1A52A2]/30 hidden lg:block" />
 
           <div className="flex flex-col gap-12 lg:gap-0">
             {services.map((service, index) => (
@@ -107,14 +105,14 @@ export default function Services() {
               >
                 {/* Content Card */}
                 <div className={`w-full lg:w-1/2 ${service.side === "left" ? "lg:pr-20" : "lg:pl-20"}`}>
-                  <div className={`relative p-8 bg-[#020617]/50 border border-white/10 backdrop-blur-md group hover:border-[#DA1F28]/50 transition-all duration-500`}>
+                  <div className={`relative p-8 bg-[#020617]/60 border border-white/10 backdrop-blur-md group hover:border-[#DA1F28]/50 transition-all duration-500`}>
                     
                     {/* Number Badge */}
                     <span className="absolute -top-4 left-6 bg-[#DA1F28] text-white font-black px-4 py-1 text-xs tracking-widest shadow-xl">
                       {service.id}
                     </span>
 
-                    {/* Lightning Dot (Corner status) */}
+                    {/* Corner Indicator */}
                     <div className="absolute top-2 right-2 flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1A52A2] opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1A52A2]"></span>
@@ -126,7 +124,7 @@ export default function Services() {
                     
                     <div className="w-12 h-[2px] bg-[#DA1F28] mb-4 group-hover:w-24 transition-all duration-500" />
                     
-                    <p className="text-white/70 text-sm md:text-base leading-relaxed">
+                    <p className="text-white/80 text-sm md:text-base leading-relaxed">
                       {service.description}
                     </p>
                   </div>

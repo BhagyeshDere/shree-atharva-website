@@ -27,25 +27,26 @@ export default function Industries() {
   });
 
   return (
-    <section className="relative z-20 py-16 bg-[#f5f5f5] overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-red-500/5 blur-[120px] rounded-full" />
+    <section className="relative z-20 py-16 bg-[#f8fafc] overflow-hidden">
+      {/* Background Glow - Logo Themed */}
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#0b2c6b]/5 blur-[120px] rounded-full" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#ef1d27]/5 blur-[120px] rounded-full" />
 
       <div className="max-w-7xl mx-auto px-6">
-        {/* Heading */}
+        {/* Heading - Theme Updated */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block bg-[#ef1d27] text-white px-10 py-3 uppercase tracking-[0.25em] text-[10px] font-bold">
+          <span className="inline-block bg-[#ef1d27] text-white px-10 py-3 uppercase tracking-[0.25em] text-[10px] font-black shadow-lg shadow-red-500/20">
             Industries We Serve
           </span>
-          <h2 className="mt-6 text-4xl md:text-6xl font-black text-[#0b2c6b] leading-[1.1] tracking-tight">
-            Serving Multiple Sectors Across
+          <h2 className="mt-6 text-4xl md:text-7xl font-black text-[#0b2c6b] leading-[0.95] tracking-tighter uppercase">
+            Providing <span className="text-[#ef1d27]">Safety</span> Solutions
             <br />
-            Maharashtra
+            Across Maharashtra
           </h2>
         </motion.div>
 
@@ -57,33 +58,39 @@ export default function Industries() {
           viewport={{ once: true }}
           className="relative hidden lg:flex items-center justify-center min-h-[750px]"
         >
-          {/* CENTER */}
+          {/* CENTER - LOGO + TEXT */}
           <motion.div 
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             className="relative z-20 flex items-center justify-center"
           >
-            {/* Outer Dashed Circle - Pulse Animation */}
+            {/* Outer Dashed Circle */}
             <motion.div 
               animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute w-[280px] h-[280px] rounded-full border-2 border-dashed border-[#64c5f5]/50" 
+              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+              className="absolute w-[340px] h-[340px] rounded-full border-2 border-dashed border-[#0b2c6b]/20" 
             />
 
-            {/* Main Circle */}
-            <div className="relative w-[210px] h-[210px] rounded-full bg-white shadow-[0_15px_50px_rgba(0,0,0,0.12)] border-[8px] border-[#1aa7e1] flex flex-col items-center justify-center text-center overflow-hidden">
-              <div className="absolute top-0 left-0 w-1/2 h-2 bg-[#0b2c6b]" />
-              <div className="absolute top-0 right-0 w-1/2 h-2 bg-[#ef1d27]" />
-              <h3 className="text-4xl font-black text-[#0b2c6b] leading-none">Industries</h3>
-              <span className="mt-1 text-[#ef1d27] text-xl font-black uppercase tracking-wide">We Serve</span>
-              <p className="mt-4 text-[10px] uppercase tracking-[0.4em] text-slate-400 font-bold">Checklist</p>
+            {/* Main Logo & Text Container */}
+            <div className="relative w-[260px] h-[260px] rounded-full bg-white shadow-[0_20px_50px_rgba(11,44,107,0.15)] border-4 border-white flex flex-col items-center justify-center overflow-hidden p-6 text-center">
+               <img 
+                src="/images/logo.png" 
+                alt="Shree Atharva Logo" 
+                className="w-20 h-auto object-contain mb-2"
+              />
+              <div className="flex flex-col">
+                <span className="text-[#0b2c6b] font-black text-xl leading-tight uppercase tracking-tight">Shree Atharva</span>
+                <span className="text-[#ef1d27] font-bold text-sm uppercase tracking-widest">Enterprises</span>
+              </div>
+              
+              {/* Bottom Accent Strip */}
+              <div className="absolute bottom-0 left-0 w-full h-2 bg-[#ef1d27]" />
             </div>
           </motion.div>
 
           {/* CONNECTION LINES (SVG) */}
-          <svg className="absolute inset-0 w-full h-full z-0 opacity-40">
-            <g stroke="#21a9e1" strokeWidth="1.5" strokeDasharray="6 6">
-              {/* Lines mapped to match the smaller 210px center */}
+          <svg className="absolute inset-0 w-full h-full z-0 opacity-30">
+            <g stroke="#0b2c6b" strokeWidth="1.5" strokeDasharray="6 6">
               <line x1="50%" y1="50%" x2="26%" y2="20%" />
               <line x1="50%" y1="50%" x2="22%" y2="37%" />
               <line x1="50%" y1="50%" x2="24%" y2="63%" />
@@ -96,61 +103,61 @@ export default function Industries() {
           </svg>
 
           {/* LEFT SIDE ITEMS */}
-          <motion.div variants={itemVariants("left")} className="absolute left-0 top-[10%] flex items-center">
-            <div className="bg-gradient-to-r from-[#0b2c6b] to-[#1296db] text-white h-[60px] min-w-[280px] rounded-full flex items-center justify-center text-base font-black uppercase shadow-xl">Industrial Projects</div>
-            <div className="-ml-5 w-[75px] h-[75px] rounded-full bg-white border-[5px] border-[#1aa7e1] flex items-center justify-center shadow-xl">
+          <motion.div variants={itemVariants("left")} className="absolute left-0 top-[10%] flex items-center group">
+            <div className="bg-gradient-to-r from-[#0b2c6b] to-[#1296db] text-white h-[60px] min-w-[280px] rounded-full flex items-center justify-center text-base font-black uppercase shadow-xl transition-all group-hover:scale-105">Industrial Projects</div>
+            <div className="-ml-5 w-[75px] h-[75px] rounded-full bg-white border-[5px] border-[#0b2c6b] flex items-center justify-center shadow-xl z-10 transition-transform group-hover:scale-110">
               <Factory className="w-8 h-8 text-[#ef1d27]" />
             </div>
           </motion.div>
 
-          <motion.div variants={itemVariants("left")} className="absolute left-[2%] top-[33%] flex items-center">
-            <div className="bg-gradient-to-r from-[#0b2c6b] to-[#1296db] text-white h-[60px] min-w-[280px] rounded-full flex items-center justify-center text-base font-black uppercase shadow-xl">Hospitals</div>
-            <div className="-ml-5 w-[75px] h-[75px] rounded-full bg-white border-[5px] border-[#1aa7e1] flex items-center justify-center shadow-xl">
+          <motion.div variants={itemVariants("left")} className="absolute left-[2%] top-[33%] flex items-center group">
+            <div className="bg-gradient-to-r from-[#0b2c6b] to-[#1296db] text-white h-[60px] min-w-[280px] rounded-full flex items-center justify-center text-base font-black uppercase shadow-xl transition-all group-hover:scale-105">Hospitals</div>
+            <div className="-ml-5 w-[75px] h-[75px] rounded-full bg-white border-[5px] border-[#0b2c6b] flex items-center justify-center shadow-xl z-10 transition-transform group-hover:scale-110">
               <Hospital className="w-8 h-8 text-[#ef1d27]" />
             </div>
           </motion.div>
 
-          <motion.div variants={itemVariants("left")} className="absolute left-[3%] bottom-[30%] flex items-center">
-            <div className="bg-gradient-to-r from-[#0b2c6b] to-[#1296db] text-white h-[60px] min-w-[280px] rounded-full flex items-center justify-center text-base font-black uppercase shadow-xl">Residential Projects</div>
-            <div className="-ml-5 w-[75px] h-[75px] rounded-full bg-white border-[5px] border-[#1aa7e1] flex items-center justify-center shadow-xl">
+          <motion.div variants={itemVariants("left")} className="absolute left-[3%] bottom-[30%] flex items-center group">
+            <div className="bg-gradient-to-r from-[#0b2c6b] to-[#1296db] text-white h-[60px] min-w-[280px] rounded-full flex items-center justify-center text-base font-black uppercase shadow-xl transition-all group-hover:scale-105">Residential Projects</div>
+            <div className="-ml-5 w-[75px] h-[75px] rounded-full bg-white border-[5px] border-[#0b2c6b] flex items-center justify-center shadow-xl z-10 transition-transform group-hover:scale-110">
               <House className="w-8 h-8 text-[#ef1d27]" />
             </div>
           </motion.div>
 
-          <motion.div variants={itemVariants("left")} className="absolute left-[8%] bottom-[8%] flex items-center">
-            <div className="bg-gradient-to-r from-[#0b2c6b] to-[#1296db] text-white h-[60px] min-w-[280px] rounded-full flex items-center justify-center text-base font-black uppercase shadow-xl">Schools & Colleges</div>
-            <div className="-ml-5 w-[75px] h-[75px] rounded-full bg-white border-[5px] border-[#1aa7e1] flex items-center justify-center shadow-xl">
+          <motion.div variants={itemVariants("left")} className="absolute left-[8%] bottom-[8%] flex items-center group">
+            <div className="bg-gradient-to-r from-[#0b2c6b] to-[#1296db] text-white h-[60px] min-w-[280px] rounded-full flex items-center justify-center text-base font-black uppercase shadow-xl transition-all group-hover:scale-105">Schools & Colleges</div>
+            <div className="-ml-5 w-[75px] h-[75px] rounded-full bg-white border-[5px] border-[#0b2c6b] flex items-center justify-center shadow-xl z-10 transition-transform group-hover:scale-110">
               <School className="w-8 h-8 text-[#ef1d27]" />
             </div>
           </motion.div>
 
           {/* RIGHT SIDE ITEMS */}
-          <motion.div variants={itemVariants("right")} className="absolute right-0 top-[10%] flex items-center">
-            <div className="mr-[-20px] w-[75px] h-[75px] rounded-full bg-white border-[5px] border-[#1aa7e1] flex items-center justify-center shadow-xl z-10">
-              <Building2 className="w-8 h-8 text-[#ef1d27]" />
+          <motion.div variants={itemVariants("right")} className="absolute right-0 top-[10%] flex items-center group">
+            <div className="mr-[-20px] w-[75px] h-[75px] rounded-full bg-white border-[5px] border-[#ef1d27] flex items-center justify-center shadow-xl z-10 transition-transform group-hover:scale-110">
+              <Building2 className="w-8 h-8 text-[#0b2c6b]" />
             </div>
-            <div className="bg-gradient-to-r from-[#0b2c6b] to-[#1296db] text-white h-[60px] min-w-[280px] rounded-full flex items-center justify-center text-base font-black uppercase shadow-xl">Commercial Projects</div>
+            <div className="bg-gradient-to-r from-[#ef1d27] to-[#b91c1c] text-white h-[60px] min-w-[280px] rounded-full flex items-center justify-center text-base font-black uppercase shadow-xl transition-all group-hover:scale-105">Commercial Projects</div>
           </motion.div>
 
-          <motion.div variants={itemVariants("right")} className="absolute right-[2%] top-[33%] flex items-center">
-            <div className="mr-[-20px] w-[75px] h-[75px] rounded-full bg-white border-[5px] border-[#1aa7e1] flex items-center justify-center shadow-xl z-10">
-              <Landmark className="w-8 h-8 text-[#ef1d27]" />
+          <motion.div variants={itemVariants("right")} className="absolute right-[2%] top-[33%] flex items-center group">
+            <div className="mr-[-20px] w-[75px] h-[75px] rounded-full bg-white border-[5px] border-[#ef1d27] flex items-center justify-center shadow-xl z-10 transition-transform group-hover:scale-110">
+              <Landmark className="w-8 h-8 text-[#0b2c6b]" />
             </div>
-            <div className="bg-gradient-to-r from-[#0b2c6b] to-[#1296db] text-white h-[60px] min-w-[280px] rounded-full flex items-center justify-center text-base font-black uppercase shadow-xl">Banks</div>
+            <div className="bg-gradient-to-r from-[#ef1d27] to-[#b91c1c] text-white h-[60px] min-w-[280px] rounded-full flex items-center justify-center text-base font-black uppercase shadow-xl transition-all group-hover:scale-105">Banks</div>
           </motion.div>
 
-          <motion.div variants={itemVariants("right")} className="absolute right-[3%] bottom-[30%] flex items-center">
-            <div className="mr-[-20px] w-[75px] h-[75px] rounded-full bg-white border-[5px] border-[#1aa7e1] flex items-center justify-center shadow-xl z-10">
-              <Hotel className="w-8 h-8 text-[#ef1d27]" />
+          <motion.div variants={itemVariants("right")} className="absolute right-[3%] bottom-[30%] flex items-center group">
+            <div className="mr-[-20px] w-[75px] h-[75px] rounded-full bg-white border-[5px] border-[#ef1d27] flex items-center justify-center shadow-xl z-10 transition-transform group-hover:scale-110">
+              <Hotel className="w-8 h-8 text-[#0b2c6b]" />
             </div>
-            <div className="bg-gradient-to-r from-[#0b2c6b] to-[#1296db] text-white h-[60px] min-w-[280px] rounded-full flex items-center justify-center text-base font-black uppercase shadow-xl">Hotels</div>
+            <div className="bg-gradient-to-r from-[#ef1d27] to-[#b91c1c] text-white h-[60px] min-w-[280px] rounded-full flex items-center justify-center text-base font-black uppercase shadow-xl transition-all group-hover:scale-105">Hotels</div>
           </motion.div>
 
-          <motion.div variants={itemVariants("right")} className="absolute right-[8%] bottom-[8%] flex items-center">
-            <div className="mr-[-20px] w-[75px] h-[75px] rounded-full bg-white border-[5px] border-[#1aa7e1] flex items-center justify-center shadow-xl z-10">
-              <BriefcaseBusiness className="w-8 h-8 text-[#ef1d27]" />
+          <motion.div variants={itemVariants("right")} className="absolute right-[8%] bottom-[8%] flex items-center group">
+            <div className="mr-[-20px] w-[75px] h-[75px] rounded-full bg-white border-[5px] border-[#ef1d27] flex items-center justify-center shadow-xl z-10 transition-transform group-hover:scale-110">
+              <BriefcaseBusiness className="w-8 h-8 text-[#0b2c6b]" />
             </div>
-            <div className="bg-gradient-to-r from-[#0b2c6b] to-[#1296db] text-white h-[60px] min-w-[280px] rounded-full flex items-center justify-center text-base font-black uppercase shadow-xl">Government Jobs</div>
+            <div className="bg-gradient-to-r from-[#ef1d27] to-[#b91c1c] text-white h-[60px] min-w-[280px] rounded-full flex items-center justify-center text-base font-black uppercase shadow-xl transition-all group-hover:scale-105">Government Jobs</div>
           </motion.div>
         </motion.div>
 
@@ -172,10 +179,10 @@ export default function Industries() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              className="bg-white rounded-2xl p-5 shadow-lg border border-slate-100 flex items-center gap-4 hover:border-[#1aa7e1] transition-colors"
+              className="bg-white rounded-2xl p-6 shadow-md border-l-4 border-[#0b2c6b] flex items-center gap-4 hover:border-[#ef1d27] transition-all"
             >
-              <div className="w-14 h-14 rounded-full bg-[#0b2c6b] flex items-center justify-center shrink-0">
-                <item.icon className="w-7 h-7 text-white" />
+              <div className="w-14 h-14 rounded-full bg-[#f1f5f9] flex items-center justify-center shrink-0">
+                <item.icon className="w-7 h-7 text-[#ef1d27]" />
               </div>
               <h3 className="text-md font-black text-[#0b2c6b] uppercase leading-tight">
                 {item.title}

@@ -17,7 +17,7 @@ export default function Certifications() {
   ];
 
   return (
-    <section className="relative py-24 md:py-32 bg-[#F9FBFF] overflow-hidden">
+    <section className="relative pt-24 md:pt-32 pb-8 md:pb-12 bg-[#F9FBFF] overflow-hidden">
       
       {/* 1. TECHNICAL BACKGROUND DECOR */}
       <div className="absolute inset-0 z-0 opacity-40">
@@ -34,11 +34,11 @@ export default function Certifications() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* 2. HEADER SECTION */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-16">
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-3 bg-white border-2 border-slate-100 px-6 py-2.5 rounded-full shadow-sm mb-8"
+            className="inline-flex items-center gap-3 bg-white border-2 border-slate-100 px-6 py-2.5 rounded-full shadow-sm mb-6 md:mb-8"
           >
             <Award className="w-4 h-4 text-[#1A52A2]" />
             <span className="uppercase tracking-[0.4em] text-[10px] font-black text-slate-500">
@@ -50,15 +50,15 @@ export default function Certifications() {
             Verified <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1A52A2] to-[#DA1F28]">Authority</span>
           </h2>
 
-          <p className="mt-8 text-slate-500 max-w-xl mx-auto text-sm md:text-base font-bold uppercase tracking-widest leading-relaxed">
+          <p className="mt-6 md:mt-8 text-slate-500 max-w-xl mx-auto text-xs md:text-base font-bold uppercase tracking-widest leading-relaxed">
             Officially Licensed Agency • Class 'A' Government Registration
           </p>
         </div>
 
         {/* 3. INFINITE FRAMED SLIDER */}
-        <div className="relative mt-12 flex overflow-hidden group py-10">
+        <div className="relative flex overflow-hidden group py-4 md:py-6">
           <motion.div
-            className="flex gap-12 whitespace-nowrap"
+            className="flex gap-8 md:gap-12 whitespace-nowrap"
             animate={{ x: ["0%", "-50%"] }}
             transition={{
               duration: 40,
@@ -72,70 +72,38 @@ export default function Certifications() {
                 onClick={() => setSelectedImg(item)}
                 className="relative flex-shrink-0 group/card cursor-pointer"
               >
-                {/* DARK EXHIBITION FRAME */}
-                <div className="relative w-[280px] md:w-[420px] aspect-[1/1.4] transition-all duration-500 group-hover/card:-translate-y-4">
-                  
-                  {/* Deep Shadow for Dark Frame */}
+                <div className="relative w-[260px] md:w-[400px] aspect-[1/1.4] transition-all duration-500 group-hover/card:-translate-y-4">
                   <div className="absolute inset-6 bg-[#0a132e]/40 blur-2xl rounded-sm opacity-0 group-hover/card:opacity-100 transition-opacity" />
-
-                  {/* Outer Frame - Dark Industrial Slate */}
-                  <div className="absolute inset-0 bg-[#1e293b] border-[14px] border-[#0f172a] shadow-2xl rounded-sm overflow-hidden flex items-center justify-center">
-                    
-                    {/* Inner Contrast Matting - Midnight Blue */}
+                  <div className="absolute inset-0 bg-[#1e293b] border-[10px] md:border-[14px] border-[#0f172a] shadow-2xl rounded-sm overflow-hidden flex items-center justify-center">
                     <div className="w-[92%] h-[94%] bg-[#0a132e] p-1 flex items-center justify-center relative overflow-hidden ring-1 ring-white/10">
                       <img
                         src={item}
                         alt="Official Certificate"
                         className="w-full h-full object-cover transition-all duration-700 group-hover/card:scale-105 group-hover/card:brightness-110"
                       />
-                      
-                      {/* Interactive Hover Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0a132e] via-transparent to-transparent opacity-60 group-hover/card:opacity-20 transition-opacity duration-500" />
-                      
                       <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover/card:opacity-100 transition-all duration-500 bg-[#0a132e]/70 backdrop-blur-[2px]">
-                        <div className="bg-white p-4 rounded-full shadow-2xl mb-4 transform scale-50 group-hover/card:scale-100 transition-transform duration-500">
-                          <Maximize2 className="text-[#0a132e] w-6 h-6" />
+                        <div className="bg-white p-3 md:p-4 rounded-full shadow-2xl mb-4 transform scale-50 group-hover/card:scale-100 transition-transform duration-500">
+                          <Maximize2 className="text-[#0a132e] w-5 h-5 md:w-6 md:h-6" />
                         </div>
-                        <p className="text-white text-[10px] font-black uppercase tracking-[0.3em]">Full Inspection</p>
+                        <p className="text-white text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em]">Full Inspection</p>
                       </div>
                     </div>
                   </div>
-
-                  {/* Metallic Rivet Accents */}
-                  <div className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full bg-[#334155] border border-white/10" />
-                  <div className="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-[#334155] border border-white/10" />
-                  <div className="absolute bottom-2.5 left-2.5 w-2 h-2 rounded-full bg-[#334155] border border-white/10" />
-                  <div className="absolute bottom-2.5 right-2.5 w-2 h-2 rounded-full bg-[#334155] border border-white/10" />
+                  <div className="absolute top-2 left-2 w-1.5 h-1.5 rounded-full bg-[#334155] border border-white/10" />
+                  <div className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-[#334155] border border-white/10" />
+                  <div className="absolute bottom-2 left-2 w-1.5 h-1.5 rounded-full bg-[#334155] border border-white/10" />
+                  <div className="absolute bottom-2 right-2 w-1.5 h-1.5 rounded-full bg-[#334155] border border-white/10" />
                 </div>
               </div>
             ))}
           </motion.div>
-
-          {/* Fade Masking */}
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#F9FBFF] to-transparent z-20 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#F9FBFF] to-transparent z-20 pointer-events-none" />
-        </div>
-
-        {/* 4. VERIFICATION FOOTER */}
-        <div className="mt-20 flex flex-col md:flex-row items-center justify-between border-t border-slate-200 pt-12 gap-8">
-           <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-[#0a132e] text-white flex items-center justify-center rounded-xl shadow-xl">
-                <ShieldCheck size={28} />
-              </div>
-              <div>
-                <h4 className="text-lg font-black text-[#0a132e] uppercase leading-none">Industrial Validation</h4>
-                <p className="text-[10px] font-bold text-slate-400 mt-1 uppercase tracking-widest">Authenticated Licensing</p>
-              </div>
-           </div>
-
-           <div className="flex gap-2">
-              <span className="bg-[#0a132e] text-white px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-tighter">Class-A Verified</span>
-              <span className="bg-white border border-slate-200 px-5 py-2 rounded-full text-[10px] font-black text-slate-600 uppercase tracking-tighter">Maharashtra Govt Contractor</span>
-           </div>
+          <div className="absolute inset-y-0 left-0 w-20 md:w-32 bg-gradient-to-r from-[#F9FBFF] to-transparent z-20 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-20 md:w-32 bg-gradient-to-l from-[#F9FBFF] to-transparent z-20 pointer-events-none" />
         </div>
       </div>
 
-      {/* 5. FULL-VIEW LIGHTBOX */}
+      {/* 5. LIGHTBOX */}
       <AnimatePresence>
         {selectedImg && (
           <motion.div 
@@ -154,25 +122,24 @@ export default function Certifications() {
             >
               <button 
                 onClick={() => setSelectedImg(null)}
-                className="absolute top-4 right-4 md:-top-10 md:-right-10 text-white/50 hover:text-white transition-colors z-[110]"
+                className="absolute top-2 right-2 md:-top-10 md:-right-10 text-white/50 hover:text-white transition-colors z-[110]"
               >
-                <X size={44} strokeWidth={1.5} />
+                <X size={36} strokeWidth={1.5} />
               </button>
               
-              {/* Image Wrapper ensures full visibility */}
               <div className="relative w-full h-full flex items-center justify-center">
                  <img 
                   src={selectedImg} 
                   alt="Enlarged Certificate" 
-                  className="max-w-full max-h-full object-contain shadow-[0_0_100px_rgba(0,0,0,0.5)] rounded-sm border-[1px] border-white/20"
+                  className="max-w-full max-h-full object-contain shadow-2xl rounded-sm border border-white/20"
                 />
               </div>
 
-              {/* Bottom Badge for Lightbox */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-4 whitespace-nowrap">
-                <div className="flex items-center gap-3 bg-[#DA1F28] px-6 py-2.5 rounded-full text-white shadow-2xl">
-                  <ShieldCheck size={16} />
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em]">Official Verification Portal</span>
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-4">
+                <div className="flex items-center gap-3 bg-[#DA1F28] px-5 py-2 md:px-6 md:py-2.5 rounded-full text-white shadow-2xl">
+                  {/* FIXED: Removed md:size namespace error */}
+                  <ShieldCheck className="w-4 h-4 md:w-5 md:h-5" />
+                  <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em]">Official Verification</span>
                 </div>
               </div>
             </motion.div>

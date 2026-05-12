@@ -2,10 +2,11 @@ import Hero from "@/components/home/Hero";
 
 import About from "@/components/home/About";
 
-import Industries from "@/components/home/Industries";
 import Services from "@/components/home/Services";
+
+import Industries from "@/components/home/Industries";
 import Products from "@/components/home/Products";
-import Projects from "@/components/home/Projects";
+//import Projects from "@/components/home/Projects";
 import Clients from "@/components/home/Clients";
 
 
@@ -24,17 +25,16 @@ export default function Home() {
     {/* services */}
       <Services />
 
-     {/* products */}
-      <Products />
+   
 
      
 
         {/* Industries We Serve */}
       <Industries />
 
-      
-        {/* projects */}
-      <Projects />
+        {/* products */}
+      <Products />
+       
 
    {/* Clients Logos */}
       <Clients />

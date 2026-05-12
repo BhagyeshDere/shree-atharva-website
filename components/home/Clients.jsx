@@ -8,75 +8,100 @@ export default function Clients() {
   const duplicatedClients = [...clients, ...clients, ...clients];
 
   return (
-    <section className="py-24 bg-white overflow-hidden border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6">
+    /* Tightened padding-bottom for better flow */
+    <section className="pt-24 pb-16 bg-white overflow-hidden border-t border-gray-100 relative">
+      {/* Subtle Background Typographic Watermark */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.03] flex items-center justify-center select-none">
+        <span className="text-[20vw] font-black uppercase tracking-tighter text-[#1A52A2]">Partners</span>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Centralized Editorial Heading */}
-        <div className="flex flex-col items-center text-center mb-20">
+        <div className="flex flex-col items-center text-center mb-16 md:mb-20">
           <motion.div 
             initial={{ width: 0 }}
-            whileInView={{ width: "80px" }}
+            whileInView={{ width: "100px" }}
             viewport={{ once: true }}
-            className="h-1 bg-[#DA1F28] mb-8" 
+            className="h-[3px] bg-gradient-to-r from-transparent via-[#DA1F28] to-transparent mb-8" 
           />
           
-          <h2 className="text-5xl md:text-7xl font-black text-[#0a132e] uppercase tracking-tighter leading-none mb-6">
-            Proven <span className="text-[#1A52A2]">Track Record</span>
-          </h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-5xl md:text-8xl font-black text-[#0a132e] uppercase tracking-tighter leading-[0.85] mb-6">
+              Proven <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#1A52A2] to-[#0a132e]">Track Record</span>
+            </h2>
+          </motion.div>
           
-          <div className="flex items-center gap-4">
-            <span className="hidden md:block w-8 h-[1px] bg-gray-300" />
-            <p className="text-gray-500 font-bold uppercase tracking-[0.4em] text-[10px] md:text-xs">
-              Trusted by Maharashtra's Leading Industries
+          <div className="flex items-center gap-6">
+            <span className="hidden md:block w-12 h-[1px] bg-[#1A52A2]/20" />
+            <p className="text-slate-400 font-bold uppercase tracking-[0.5em] text-[10px] md:text-xs">
+              Trusted by Maharashtra&apos;s Leading Industries
             </p>
-            <span className="hidden md:block w-8 h-[1px] bg-gray-300" />
+            <span className="hidden md:block w-12 h-[1px] bg-[#1A52A2]/20" />
           </div>
         </div>
       </div>
 
-      {/* Structured Slider Wrapper */}
-      <div className="relative py-12 bg-gray-50/30">
-        {/* Subtle top/bottom borders to give the slider a defined 'track' feel */}
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-gray-200/50" />
-        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gray-200/50" />
+      {/* Improved Slider */}
+      <div className="relative py-10 group bg-slate-50/50">
+        {/* Advanced Track Borders */}
+        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
-        {/* Side Fades for smooth entry/exit of logos */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
+        {/* Side Fades */}
+        <div className="absolute inset-y-0 left-0 w-32 md:w-64 bg-gradient-to-r from-white via-white/90 to-transparent z-20 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-32 md:w-64 bg-gradient-to-l from-white via-white/90 to-transparent z-20 pointer-events-none" />
 
         <motion.div
-          className="flex whitespace-nowrap"
+          className="flex whitespace-nowrap items-center"
           animate={{
             x: ["0%", "-33.33%"], 
           }}
           transition={{
             ease: "linear",
-            duration: 15, // Speed improved: Lowered from 25 to 15 for faster movement
+            duration: 12, 
             repeat: Infinity,
           }}
         >
           {duplicatedClients.map((client, index) => (
             <div
               key={`${client.id}-${index}`}
-              className="flex-shrink-0 px-10 md:px-16 flex items-center justify-center border-r border-gray-100/50"
+              className="flex-shrink-0 px-8 md:px-16 flex items-center justify-center"
             >
-              <img
-                src={client.image}
-                alt={client.name}
-                // grayscale-0 ensures original colors; transition is subtle without shadows
-                className="h-10 md:h-14 w-auto object-contain transition-transform duration-300 hover:scale-105"
-              />
+              {/* UNIFORM SIZE CONTAINER: Set fixed height/width to ensure all logos look identical in scale */}
+              <div className="w-24 h-12 md:w-40 md:h-20 flex items-center justify-center grayscale-0">
+                <img
+                  src={client.image}
+                  alt={client.name}
+                  className="max-w-full max-h-full w-auto h-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300 hover:scale-110"
+                />
+              </div>
             </div>
           ))}
         </motion.div>
       </div>
 
-      {/* Bottom Labeling for an Advanced Look */}
+      {/* Bottom Labeling - Badge Style (Reduced Margin) */}
       <div className="mt-12 flex justify-center">
-        <div className="inline-flex items-center gap-3 px-6 py-2 border border-gray-100 rounded-full bg-white text-[9px] font-black uppercase tracking-[0.2em] text-gray-400">
-          <span className="w-2 h-2 rounded-full bg-[#DA1F28] animate-pulse" />
-          Ongoing Projects Across 15+ Districts
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          className="group cursor-default"
+        >
+          <div className="inline-flex items-center gap-4 px-8 py-3 border border-slate-100 rounded-full bg-white shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-300 hover:shadow-[0_10px_40px_-10px_rgba(26,82,162,0.15)] hover:border-[#1A52A2]/20">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#DA1F28] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#DA1F28]"></span>
+            </span>
+            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 transition-colors group-hover:text-[#1A52A2]">
+              Ongoing Projects Across 15+ Districts
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

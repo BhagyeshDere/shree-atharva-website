@@ -72,12 +72,15 @@ export default function Navbar() {
           
         {/* Right: CTA & Contact */}
         <div className="hidden lg:flex items-center gap-4 border-l border-gray-200 pl-6 shrink-0">
-          <a href="tel:+910000000000" className="p-2 text-[#DA1F28] hover:bg-red-50 rounded-full transition-colors">
+          <a href="tel:+919422504471" className="p-2 text-[#DA1F28] hover:bg-red-50 rounded-full transition-colors">
             <Phone size={18} fill="currentColor" />
           </a>
-          <button className="px-6 py-2.5 bg-[#DA1F28] text-white text-xs md:text-sm font-bold rounded-full hover:scale-105 transition-transform shadow-md active:scale-95">
-            Get Quote
-          </button>
+          {/* Updated: Link to Contact Page */}
+          <Link href="/contact">
+            <button className="px-6 py-2.5 bg-[#DA1F28] text-white text-xs md:text-sm font-bold rounded-full hover:scale-105 transition-transform shadow-md active:scale-95">
+              Get Quote
+            </button>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -110,9 +113,12 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <button className="w-full py-4 bg-[#DA1F28] text-white font-bold rounded-2xl">
-              Get Quote
-            </button>
+            {/* Updated: Mobile CTA Link to Contact Page */}
+            <Link href="/contact" onClick={() => setIsOpen(false)}>
+              <button className="w-full py-4 bg-[#DA1F28] text-white font-bold rounded-2xl">
+                Get Quote
+              </button>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
