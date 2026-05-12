@@ -48,7 +48,7 @@ export default function CompanyAbout() {
               {/* Primary Image with Custom Border Radius */}
               <div className="relative rounded-tr-[100px] rounded-bl-[100px] rounded-tl-3xl rounded-br-3xl overflow-hidden shadow-2xl border-4 border-white">
                 <img
-                  src="/images/about/about-main.png"
+                  src="/images/about/about-secondary.png"
                   alt="Fire Protection Installation"
                   className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-700"
                 />

@@ -2,6 +2,14 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { 
+  Droplets, 
+  BellRing, 
+  Megaphone, 
+  Wind, 
+  ShieldCheck, 
+  Settings 
+} from "lucide-react";
 
 const services = [
   {
@@ -9,58 +17,61 @@ const services = [
     title: "Fire Hydrant & Sprinkler System",
     description: "Design, supply, installation and maintenance of hydrant and sprinkler systems.",
     side: "left",
+    icon: <Droplets className="w-6 h-6" />,
   },
   {
     id: "02",
     title: "Smoke Detection & Fire Alarm",
     description: "Automatic smoke detection, fire alarm and emergency alert systems.",
     side: "right",
+    icon: <BellRing className="w-6 h-6" />,
   },
   {
     id: "03",
     title: "PA System & Gas Detection",
     description: "Public announcement systems and gas detection safety solutions.",
     side: "left",
+    icon: <Megaphone className="w-6 h-6" />,
   },
   {
     id: "04",
     title: "Velocity Spray System",
     description: "High and medium velocity spray systems for critical fire protection areas.",
     side: "right",
+    icon: <Wind className="w-6 h-6" />,
   },
   {
     id: "05",
     title: "Annual Maintenance Contracts",
     description: "AMC services for reliable and compliant fire safety operations.",
     side: "left",
+    icon: <ShieldCheck className="w-6 h-6" />,
   },
   {
     id: "06",
     title: "Fire Pumps & Control Panel",
     description: "Supply and maintenance of fire pumps, control panels and related equipment.",
     side: "right",
+    icon: <Settings className="w-6 h-6" />,
   },
 ];
 
 export default function Services() {
   return (
-    <section className="relative w-full py-24  overflow-hidden text-white">
-      {/* BACKGROUND VIDEO LAYER - RESTORED ORIGINAL COLORS */}
+    <section className="relative w-full py-24 overflow-hidden text-white">
+      {/* BACKGROUND VIDEO LAYER */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover opacity-60" // Removed grayscale and updated opacity
+          className="w-full h-full object-cover opacity-60"
         >
           <source src="/videos/services.mp4" type="video/mp4" />
         </video>
         
-        {/* SUBTLE OVERLAY FOR TEXT LEGIBILITY */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/80 via-[#020617]/40 to-[#020617]/80 z-[1]" />
-        
-        {/* MINIMAL COLOR ACCENTS */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,_rgba(26,82,162,0.1)_0%,_transparent_50%)] z-[1]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,_rgba(218,31,40,0.1)_0%,_transparent_50%)] z-[1]" />
       </div>
@@ -105,12 +116,12 @@ export default function Services() {
               >
                 {/* Content Card */}
                 <div className={`w-full lg:w-1/2 ${service.side === "left" ? "lg:pr-20" : "lg:pl-20"}`}>
-                  <div className={`relative p-8 bg-[#020617]/60 border border-white/10 backdrop-blur-md group hover:border-[#DA1F28]/50 transition-all duration-500`}>
+                  <div className={`relative p-8 bg-[#020617]/60 border border-white/10 backdrop-blur-md group hover:border-[#DA1F28]/50 transition-all duration-500 rounded-sm`}>
                     
-                    {/* Number Badge */}
-                    <span className="absolute -top-4 left-6 bg-[#DA1F28] text-white font-black px-4 py-1 text-xs tracking-widest shadow-xl">
-                      {service.id}
-                    </span>
+                    {/* Icon Badge - Replacing Numbers */}
+                    <div className="absolute -top-6 left-6 bg-[#DA1F28] text-white p-3 shadow-xl group-hover:scale-110 transition-transform duration-500">
+                      {service.icon}
+                    </div>
 
                     {/* Corner Indicator */}
                     <div className="absolute top-2 right-2 flex h-2 w-2">
@@ -118,7 +129,7 @@ export default function Services() {
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1A52A2]"></span>
                     </div>
 
-                    <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight mb-4 group-hover:text-[#1A52A2] transition-colors">
+                    <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight mt-4 mb-4 group-hover:text-[#1A52A2] transition-colors">
                       {service.title}
                     </h3>
                     
