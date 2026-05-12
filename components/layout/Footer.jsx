@@ -68,13 +68,11 @@ export default function Footer() {
           {/* Column 1: Brand Identity */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="bg-white p-2 rounded-lg shrink-0">
-                <img 
-                  src="/images/logo.png" 
-                  alt="Shree Atharva Logo" 
-                  className="h-10 w-auto object-contain"
-                />
-              </div>
+              <img 
+                src="/images/logo.png" 
+                alt="Shree Atharva Logo" 
+                className="h-10 w-auto object-contain"
+              />
               <Link href="/" className="block">
                 <h2 className="text-xl font-black leading-tight tracking-tight uppercase">
                   Shree Atharva<br />
@@ -196,7 +194,7 @@ export default function Footer() {
                Developed by
              </p>
              <a 
-               href="https://qirotech.com" 
+               href="https://qirotec.com/" 
                target="_blank" 
                rel="noopener noreferrer"
                className="text-white font-bold text-[10px] uppercase tracking-widest hover:text-[#DA1F28] transition-colors"
