@@ -50,6 +50,7 @@ export default function Footer() {
     { name: "Services", path: "/services" },
     { name: "Products", path: "/products" },
     { name: "Projects", path: "/projects" },
+    { name: "Our Clients", path: "/clients" }, // Added Clients Page
     { name: "Contact", path: "/contact" },
   ];
 
@@ -108,7 +109,7 @@ export default function Footer() {
               Quick Links
               <span className="absolute -bottom-2 left-0 w-8 h-1 bg-[#DA1F28]" />
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {menuItems.map((item) => (
                 <li key={item.name}>
                   <Link 
