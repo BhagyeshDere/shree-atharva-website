@@ -50,7 +50,7 @@ export default function Footer() {
     { name: "Services", path: "/services" },
     { name: "Products", path: "/products" },
     { name: "Projects", path: "/projects" },
-    { name: "Our Clients", path: "/clients" }, // Added Clients Page
+    { name: "Our Clients", path: "/clients" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -59,24 +59,24 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#050a1a] text-white pt-20 overflow-hidden">
+    <footer className="relative bg-[#050a1a] text-white pt-16 md:pt-20 overflow-hidden">
       {/* Decorative Brand Accent */}
       <div className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-[#1A52A2] via-[#DA1F28] to-[#1A52A2]" />
 
       <div className="max-w-7xl mx-auto px-6 pb-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 lg:gap-8">
           
           {/* Column 1: Brand Identity */}
-          <div className="space-y-6">
+          <div className="space-y-6 flex flex-col items-center sm:items-start text-center sm:text-left">
             <div className="flex items-center gap-3">
               <img 
-                src="/images/logo.png" 
+                src="/images/logo1.png" 
                 alt="Shree Atharva Logo" 
-                className="h-10 w-auto object-contain"
+                className="h-10 md:h-12 w-auto object-contain"
               />
               <Link href="/" className="block">
-                <h2 className="text-xl font-black leading-tight tracking-tight uppercase">
-                  Shree Atharva<br />
+                <h2 className="text-xl md:text-2xl font-black leading-tight tracking-tight uppercase">
+                  <span className="text-[#1A52A2]">Shree Atharva</span><br />
                   <span className="text-[#DA1F28]">Enterprises</span>
                 </h2>
               </Link>
@@ -104,19 +104,19 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Navigation */}
-          <div>
-            <h3 className="text-lg font-bold mb-8 relative inline-block">
+          <div className="text-center sm:text-left">
+            <h3 className="text-lg font-bold mb-6 md:mb-8 relative inline-block">
               Quick Links
-              <span className="absolute -bottom-2 left-0 w-8 h-1 bg-[#DA1F28]" />
+              <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 w-8 h-1 bg-[#DA1F28]" />
             </h3>
             <ul className="space-y-3">
               {menuItems.map((item) => (
                 <li key={item.name}>
                   <Link 
                     href={item.path}
-                    className="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm"
+                    className="group flex items-center justify-center sm:justify-start gap-2 text-slate-400 hover:text-white transition-colors text-sm"
                   >
-                    <ArrowRight className="w-3 h-3 text-[#DA1F28] opacity-0 group-hover:opacity-100 transition-all -ml-4 group-hover:ml-0" />
+                    <ArrowRight className="w-3 h-3 text-[#DA1F28] hidden sm:block opacity-0 group-hover:opacity-100 transition-all -ml-4 group-hover:ml-0" />
                     <span>{item.name}</span>
                   </Link>
                 </li>
@@ -125,49 +125,49 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Contact Details (Pune) */}
-          <div>
-            <h3 className="text-lg font-bold mb-8 relative inline-block">
+          <div className="text-center sm:text-left">
+            <h3 className="text-lg font-bold mb-6 md:mb-8 relative inline-block">
               Corporate Office
-              <span className="absolute -bottom-2 left-0 w-8 h-1 bg-[#1A52A2]" />
+              <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 w-8 h-1 bg-[#1A52A2]" />
             </h3>
             <div className="space-y-5">
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#DA1F28] shrink-0" />
                 <address className="text-slate-400 text-sm leading-relaxed not-italic">
                   J-308, 2nd Floor, Mega Center, Pune-Solapur Road, Hadapsar, Pune - 411028
                 </address>
               </div>
-              <div className="flex gap-3 items-center group">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 group">
                 <Phone className="w-5 h-5 text-[#DA1F28] shrink-0" />
-                <a href="tel:+917304251133 " className="text-slate-400 text-sm hover:text-white transition-colors underline-offset-4 hover:underline">+91 7304251133</a>
+                <a href="tel:+917304251133" className="text-slate-400 text-sm hover:text-white transition-colors underline-offset-4 hover:underline">+91 7304251133</a>
               </div>
-              <div className="flex gap-3 items-center group">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 group">
                 <Mail className="w-5 h-5 text-[#DA1F28] shrink-0" />
-                <a href="mailto:atharvaent101@gmail.com" className="text-slate-400 text-sm hover:text-white transition-colors underline-offset-4 hover:underline">atharvaent101@gmail.com</a>
+                <a href="mailto:atharvaent101@gmail.com" className="text-slate-400 text-sm hover:text-white transition-colors underline-offset-4 hover:underline break-all sm:break-normal">atharvaent101@gmail.com</a>
               </div>
             </div>
           </div>
 
           {/* Column 4: Contact Details (Latur) */}
-          <div>
-            <h3 className="text-lg font-bold mb-8 relative inline-block">
+          <div className="text-center sm:text-left">
+            <h3 className="text-lg font-bold mb-6 md:mb-8 relative inline-block">
               Latur Office
-              <span className="absolute -bottom-2 left-0 w-8 h-1 bg-[#1A52A2]" />
+              <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 w-8 h-1 bg-[#1A52A2]" />
             </h3>
             <div className="space-y-5">
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#DA1F28] shrink-0" />
                 <address className="text-slate-400 text-sm leading-relaxed not-italic">
                   Road no 3, Vyankatesh Nagar, Ambajogai Road, Latur - 413512
                 </address>
               </div>
-              <div className="flex gap-3 items-center">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3">
                 <Phone className="w-5 h-5 text-[#DA1F28] shrink-0" />
                 <a href="tel:+918484003636" className="text-slate-400 text-sm hover:text-white transition-colors underline-offset-4 hover:underline">+91 8484003636</a>
               </div>
-              <div className="flex gap-3 items-center">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3">
                 <Mail className="w-5 h-5 text-[#DA1F28] shrink-0" />
-                <a href="mailto:atharvaent101@gmail.com" className="text-slate-400 text-sm hover:text-white transition-colors underline-offset-4 hover:underline">atharvaent101@gmail.com</a>
+                <a href="mailto:atharvaent101@gmail.com" className="text-slate-400 text-sm hover:text-white transition-colors underline-offset-4 hover:underline break-all sm:break-normal">atharvaent101@gmail.com</a>
               </div>
             </div>
           </div>
@@ -177,20 +177,20 @@ export default function Footer() {
 
       {/* Bottom Bar: Copyright & Scroll to Top */}
       <div className="border-t border-white/5 bg-black/30 backdrop-blur-sm py-8 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-slate-500 text-[10px] font-medium uppercase tracking-widest order-2 md:order-1">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+          <p className="text-slate-500 text-[10px] font-medium uppercase tracking-widest order-3 md:order-1 text-center md:text-left">
             © {currentYear} Shree Atharva Enterprises. All Rights Reserved.
           </p>
           
           <button 
             onClick={scrollToTop}
-            className="w-10 h-10 bg-[#DA1F28] rounded-full flex items-center justify-center hover:scale-110 transition-transform active:scale-95 shadow-lg order-1 md:order-2"
+            className="w-10 h-10 md:w-12 md:h-12 bg-[#DA1F28] rounded-full flex items-center justify-center hover:scale-110 transition-transform active:scale-95 shadow-lg order-1 md:order-2"
             aria-label="Scroll to top"
           >
-            <ChevronUp className="w-5 h-5 text-white" />
+            <ChevronUp className="w-5 h-5 md:w-6 md:h-6 text-white" />
           </button>
 
-          <div className="flex flex-col md:flex-row items-center gap-1 order-3">
+          <div className="flex flex-col sm:flex-row items-center gap-1.5 order-2 md:order-3 text-center md:text-right">
              <p className="text-slate-500 text-[10px] font-medium uppercase tracking-widest">
                Developed by
              </p>

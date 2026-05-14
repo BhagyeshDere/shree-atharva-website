@@ -7,33 +7,32 @@ export default function Loader() {
   const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
 
-  // ADVANCED KINETIC TIMING SEQUENCE
+  // Exact Brand Colors
+  const brandBlue = "#1A52A2";
+  const brandRed = "#DA1F28";
+  const lightBg = "#F2F4F7"; 
+
   useEffect(() => {
     const timer = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(timer);
-          // 1.5s delay at the end allows the "System Online" message to resonate
-          setTimeout(() => setIsVisible(false), 1500); 
+          setTimeout(() => setIsVisible(false), 800); 
           return 100;
         }
-
-        // KINETIC FLOW: 
-        // 0-45%: Rapid burst (Simulating power-up)
-        // 45-85%: Steady stream (Simulating scan)
-        // 85-99%: Micro-increments (Simulating deep verification/editorial impact)
+        
         let increment = 0;
-        if (prev < 45) {
-          increment = Math.random() * 3.5;
-        } else if (prev < 85) {
-          increment = Math.random() * 0.8;
+        if (prev < 70) {
+          increment = Math.random() * 4.5;
+        } else if (prev < 92) {
+          increment = Math.random() * 1.2;
         } else {
-          increment = Math.random() * 0.15; 
+          increment = Math.random() * 0.4;
         }
         
         return Math.min(prev + increment, 100);
       });
-    }, 35); // 35ms for maximum fluid response
+    }, 35);
 
     return () => clearInterval(timer);
   }, []);
@@ -45,141 +44,137 @@ export default function Loader() {
           key="loader"
           initial={{ opacity: 1 }}
           exit={{ 
-            y: "-100%", 
-            transition: { duration: 1.2, ease: [0.85, 0, 0.15, 1] } 
+            opacity: 0,
+            y: -20,
+            transition: { duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] } 
           }}
-          className="fixed inset-0 z-[9999] bg-[#050a1a] flex items-center justify-center overflow-hidden font-sans"
+          className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden font-sans"
+          style={{ backgroundColor: lightBg }}
         >
-          {/* 1. LARGE BACKGROUND BRANDING (EDITORIAL) */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden px-4">
-            <motion.h2 
-              initial={{ opacity: 0, scale: 1.1, letterSpacing: "0.2em" }}
-              animate={{ opacity: 0.05, scale: 1, letterSpacing: "0em" }}
-              transition={{ duration: 3, ease: "easeOut" }}
-              className="text-[12vw] md:text-[14vw] font-black text-white uppercase leading-none text-center whitespace-nowrap tracking-tighter"
+          {/* 1. INCREASED SIZE WATERMARK LOGO */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+            <motion.div
+              initial={{ opacity: 0, scale: 1 }}
+              animate={{ 
+                opacity: 0.28, 
+                scale: 1.2,
+              }}
+              transition={{ duration: 5, ease: "linear" }}
+              className="absolute"
             >
-              Shree Atharva
+              <img 
+                src="/images/logo1.png" 
+                alt="" 
+                // Increased watermark scale
+                className="w-[110vw] md:w-[75vw] lg:w-[60vw] max-w-[1200px] object-contain opacity-60" 
+                style={{ 
+                  filter: "contrast(1.1) saturate(1.2) grayscale(10%)"
+                }}
+              />
+            </motion.div>
+            
+            <motion.h2 
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 0.04, x: 0 }}
+              transition={{ duration: 2 }}
+              className="absolute top-[15%] left-[-5%] text-[20vw] font-black tracking-tighter uppercase whitespace-nowrap"
+              style={{ color: brandBlue }}
+            >
+              ENGINEERING
             </motion.h2>
           </div>
 
-          {/* 2. PRECISION SCANNING BEAM */}
-          <motion.div 
-            animate={{ top: ["-5%", "105%"] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#DA1F28]/60 to-transparent z-10 shadow-[0_0_15px_rgba(218,31,40,0.5)]"
-          />
-
-          {/* 3. CORE ASSEMBLY (RESPONSIVE SCALING) */}
-          <div className="relative flex flex-col items-center scale-75 sm:scale-90 md:scale-100">
+          {/* 2. CENTRAL ASSEMBLY */}
+          <div className="relative flex flex-col items-center z-20 px-6 w-full max-w-6xl text-center">
             
-            {/* INTERACTIVE PROGRESS RING */}
-            <div className="relative flex items-center justify-center">
-              <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute w-72 h-72 md:w-80 md:h-80 border border-dashed border-white/10 rounded-full"
-              />
-
-              <svg className="w-64 h-64 md:w-72 md:h-72 -rotate-90">
-                <circle
-                  cx="50%" cy="50%" r="46%"
-                  className="stroke-white/5 fill-none"
-                  strokeWidth="1"
-                />
-                <motion.circle
-                  cx="50%" cy="50%" r="46%"
-                  className="fill-none"
-                  strokeWidth="3"
-                  strokeDasharray="100 100"
-                  animate={{ strokeDashoffset: 100 - progress }}
-                  style={{ 
-                    stroke: progress > 70 ? "#DA1F28" : "#1A52A2",
-                    filter: `drop-shadow(0 0 ${progress / 10}px currentColor)`
+            {/* ENHANCED LOGO SIZE */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="relative mb-6 md:mb-8"
+            >
+              {/* Increased container size for the logo */}
+              <div className="relative w-40 h-40 md:w-64 md:h-64 flex items-center justify-center">
+                <motion.img
+                  src="/images/logo1.png"
+                  alt="Logo"
+                  animate={{ 
+                    scale: [1, 1.04, 1],
+                    filter: ["brightness(1)", "brightness(1.05)", "brightness(1)"]
                   }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  // Increased logo width significantly
+                  className="w-32 md:w-56 lg:w-64 object-contain relative z-10"
+                />
+              </div>
+            </motion.div>
+
+            {/* 3. BRAND TYPOGRAPHY & DESCRIPTION */}
+            <div className="flex flex-col items-center space-y-6 md:space-y-8">
+              <div className="overflow-hidden">
+                <motion.h1 
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.8, ease: "circOut" }}
+                  className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9]"
+                  style={{ color: brandBlue }}
+                >
+                  SHREE ATHARVA <span className="block lg:inline" style={{ color: brandRed }}>ENTERPRISES</span>
+                </motion.h1>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="max-w-md md:max-w-2xl space-y-4"
+              >
+                <div className="inline-block px-4 py-1 border-y border-slate-300">
+                   <h2 className="text-xs md:text-lg font-bold tracking-[0.3em] uppercase" style={{ color: brandBlue }}>
+                    Engineering Excellence since 2014
+                  </h2>
+                </div>
+                <p className="text-[12px] md:text-base font-semibold leading-relaxed text-slate-500 tracking-wide uppercase px-4">
+                  Leading Government Licensed Agency specializing in turnkey Industrial Fire Protection, 
+                  Safety Solutions, and specialized Engineering Services.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* 4. PROGRESS BAR */}
+            <div className="mt-10 md:mt-14 w-full max-w-[280px] md:max-w-md mx-auto">
+              <div className="flex justify-between items-end mb-3 px-1">
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Processing Infrastructure</span>
+                <span className="text-sm font-mono font-black" style={{ color: brandRed }}>{Math.round(progress)}%</span>
+              </div>
+              <div className="h-[3px] w-full bg-slate-200 rounded-full overflow-hidden shadow-sm">
+                <motion.div 
+                  className="h-full"
+                  style={{ backgroundColor: brandBlue, width: `${progress}%` }}
                   transition={{ ease: "linear" }}
                 />
-              </svg>
-
-              {/* BRAND LOGO */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <motion.img
-                  src="/images/logo.png"
-                  alt="Shree Atharva Logo"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="w-32 md:w-40 object-contain z-20"
-                />
-              </div>
-            </div>
-
-            {/* 4. TYPOGRAPHIC INTERFACE */}
-            <div className="mt-12 text-center px-6 max-w-[90vw]">
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="flex flex-col items-center gap-3"
-              >
-                <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-[0.3em] leading-tight">
-                  SHREE ATHARVA <span className="text-[#DA1F28]">ENTERPRISES</span>
-                </h1>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-[1px] w-8 md:w-20 bg-gradient-to-r from-transparent to-[#1A52A2]" />
-                  <p className="text-white/50 text-[10px] md:text-xs font-medium uppercase tracking-[0.6em] whitespace-nowrap">
-                    Safety Engineering Solutions
-                  </p>
-                  <div className="h-[1px] w-8 md:w-20 bg-gradient-to-l from-transparent to-[#DA1F28]" />
-                </div>
-              </motion.div>
-
-              {/* PERFORMANCE DATA DISPLAY */}
-              <div className="flex flex-col items-center gap-6">
-                <div className="flex items-center gap-4 md:gap-8">
-                  <span className="text-[#1A52A2] font-mono text-[10px] font-bold tracking-widest">SEQ_BOOT</span>
-                  <div className="w-40 sm:w-56 md:w-80 h-[2px] bg-white/5 rounded-full overflow-hidden relative">
-                    <motion.div 
-                      className="absolute inset-0 bg-gradient-to-r from-[#1A52A2] via-[#DA1F28] to-[#DA1F28]"
-                      style={{ width: `${progress}%` }}
-                    />
-                  </div>
-                  <span className="text-[#DA1F28] font-mono text-[10px] font-bold w-12 text-right">
-                    {Math.round(progress)}%
-                  </span>
-                </div>
-
-                <div className="h-6 flex items-center justify-center">
-                  <motion.p
-                    key={Math.floor(progress / 15)}
-                    initial={{ opacity: 0, y: 5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-white/40 uppercase tracking-[0.3em] text-[8px] md:text-[10px] font-bold font-mono"
-                  >
-                    {progress < 20 && ">> Initializing Safety Grid..."}
-                    {progress >= 20 && progress < 40 && ">> Scanning Fire Suppression Nodes..."}
-                    {progress >= 40 && progress < 60 && ">> Calibrating Engineering Specs..."}
-                    {progress >= 60 && progress < 85 && ">> Authenticating Licensed Access..."}
-                    {progress >= 85 && progress < 100 && ">> Finalizing System Integrity..."}
-                    {progress === 100 && ">> System Secure - Access Granted"}
-                  </motion.p>
-                </div>
               </div>
             </div>
           </div>
 
-          
+          {/* 5. FOOTER CREDENTIALS */}
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            className="absolute bottom-10 w-full flex flex-col items-center text-center px-4"
+          >
+             <div className="w-12 h-[2px] mb-4" style={{ backgroundColor: brandRed }} />
+             <p className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-[0.5em]">
+               Class 'A' Licensed Fire Safety Engineers
+             </p>
+          </motion.div>
 
-          <div className="absolute bottom-10 right-10 hidden sm:block text-right">
-            <p className="text-[10px] text-white/30 font-black uppercase tracking-[0.25em] mb-2 italic">
-              Government Licensed Class 'A'
-            </p>
-            <div className="h-[3px] w-16 bg-gradient-to-r from-transparent to-[#DA1F28] ml-auto" />
-          </div>
-
-          {/* DYNAMIC GRID BACKGROUND */}
-          <div className="absolute inset-0 opacity-[0.08] pointer-events-none" 
+          {/* DYNAMIC GRID OVERLAY */}
+          <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
             style={{ 
-              backgroundImage: `linear-gradient(to right, #ffffff 1.5px, transparent 1.5px), linear-gradient(to bottom, #ffffff 1.5px, transparent 1.5px)`, 
-              backgroundSize: '80px 80px' 
+              backgroundImage: `radial-gradient(${brandBlue} 1px, transparent 1px)`, 
+              backgroundSize: '40px 40px' 
             }} 
           />
         </motion.div>

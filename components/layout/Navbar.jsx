@@ -51,7 +51,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3 group shrink-0">
           <div className="w-10 h-10 md:w-12 md:h-12">
             <img
-              src="/images/logo.png"
+              src="/images/logo1.png"
               alt="Shree Atharva Logo"
               className="w-full h-full object-contain"
             />
