@@ -8,6 +8,13 @@ import { useSearchParams } from "next/navigation";
 function ContactForm() {
   const searchParams = useSearchParams();
   const [selectedService, setSelectedService] = useState("");
+  
+  // State for other fields to capture data
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
 
   useEffect(() => {
     const serviceFromUrl = searchParams.get("service");
@@ -16,16 +23,46 @@ function ContactForm() {
     }
   }, [searchParams]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    const phoneNumber = "917304251133"; // Country code + Number
+    
+    // Formatting the message for WhatsApp
+    const message = `*New Inquiry via Website*%0A%0A` +
+      `*Name:* ${formData.name}%0A` +
+      `*Email:* ${formData.email}%0A` +
+      `*Service:* ${selectedService}%0A` +
+      `*Message:* ${formData.message}`;
+
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
-    <form className="space-y-6 md:space-y-8">
+    <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         <div className="space-y-2">
           <p className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#1A52A2]">01. Client Name</p>
-          <input type="text" className="w-full bg-slate-50 rounded-xl px-5 py-3.5 md:px-6 md:py-4 outline-none focus:ring-2 ring-[#1A52A2]/20 border border-slate-100 transition-all text-sm md:text-base" placeholder="Full Name" />
+          <input 
+            type="text" 
+            required
+            className="w-full bg-slate-50 rounded-xl px-5 py-3.5 md:px-6 md:py-4 outline-none focus:ring-2 ring-[#1A52A2]/20 border border-slate-100 transition-all text-sm md:text-base" 
+            placeholder="Full Name" 
+            onChange={(e) => setFormData({...formData, name: e.target.value})}
+          />
         </div>
         <div className="space-y-2">
           <p className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#1A52A2]">02. Connection</p>
-          <input type="email" className="w-full bg-slate-50 rounded-xl px-5 py-3.5 md:px-6 md:py-4 outline-none focus:ring-2 ring-[#1A52A2]/20 border border-slate-100 transition-all text-sm md:text-base" placeholder="Email Address" />
+          <input 
+            type="email" 
+            required
+            className="w-full bg-slate-50 rounded-xl px-5 py-3.5 md:px-6 md:py-4 outline-none focus:ring-2 ring-[#1A52A2]/20 border border-slate-100 transition-all text-sm md:text-base" 
+            placeholder="Email Address" 
+            onChange={(e) => setFormData({...formData, email: e.target.value})}
+          />
         </div>
       </div>
 
@@ -42,15 +79,23 @@ function ContactForm() {
 
       <div className="space-y-2">
         <p className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#1A52A2]">04. Transmission Message</p>
-        <textarea rows={4} className="w-full bg-slate-50 rounded-2xl px-5 py-5 md:px-6 md:py-6 outline-none focus:ring-2 ring-[#1A52A2]/20 border border-slate-100 transition-all resize-none text-sm md:text-base" placeholder="How can we assist your project?" />
+        <textarea 
+          rows={4} 
+          required
+          className="w-full bg-slate-50 rounded-2xl px-5 py-5 md:px-6 md:py-6 outline-none focus:ring-2 ring-[#1A52A2]/20 border border-slate-100 transition-all resize-none text-sm md:text-base" 
+          placeholder="How can we assist your project?" 
+          onChange={(e) => setFormData({...formData, message: e.target.value})}
+        />
       </div>
 
-      <button className="group w-full bg-[#0a132e] hover:bg-[#1A52A2] text-white py-5 md:py-6 rounded-full font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-[9px] md:text-[10px] flex items-center justify-center gap-4 transition-all duration-500 shadow-xl">
+      <button type="submit" className="group w-full bg-[#0a132e] hover:bg-[#1A52A2] text-white py-5 md:py-6 rounded-full font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-[9px] md:text-[10px] flex items-center justify-center gap-4 transition-all duration-500 shadow-xl">
         Submit Enquiry<Send size={14} className="group-hover:translate-x-2 transition-transform" />
       </button>
     </form>
   );
 }
+
+// ... rest of your Contact component remains exactly as you provided ...
 
 export default function Contact() {
   const offices = [
@@ -58,7 +103,7 @@ export default function Contact() {
       city: "Pune",
       type: "Main Hub",
       address: "J-308, 2nd Floor, Mega Center, Pune - Solapur Road, Hadapsar, Pune - 411028",
-      phone: "+91 9422504471",
+      phone: "+91 7304251133",
       email: "atharvaent101@gmail.com",
       color: "bg-[#f0f4fa] border-l-[6px] border-l-[#1A52A2] border-y-slate-200 border-r-slate-200",
       accent: "#1A52A2"
