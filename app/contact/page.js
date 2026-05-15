@@ -2,14 +2,14 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Activity } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Activity, Package } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
 function ContactForm() {
   const searchParams = useSearchParams();
   const [selectedService, setSelectedService] = useState("");
+  const [selectedProduct, setSelectedProduct] = useState("");
   
-  // State for other fields to capture data
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,26 +18,24 @@ function ContactForm() {
 
   useEffect(() => {
     const serviceFromUrl = searchParams.get("service");
-    if (serviceFromUrl) {
-      setSelectedService(serviceFromUrl);
-    }
+    const productFromUrl = searchParams.get("product");
+    if (serviceFromUrl) setSelectedService(serviceFromUrl);
+    if (productFromUrl) setSelectedProduct(productFromUrl);
   }, [searchParams]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    const phoneNumber = "917304251133"; // Country code + Number
+    const phoneNumber = "917304251133"; 
     
-    // Formatting the message for WhatsApp
     const message = `*New Inquiry via Website*%0A%0A` +
       `*Name:* ${formData.name}%0A` +
       `*Email:* ${formData.email}%0A` +
+      `*Product:* ${selectedProduct}%0A` +
       `*Service:* ${selectedService}%0A` +
       `*Message:* ${formData.message}`;
 
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    
-    // Open WhatsApp in a new tab
     window.open(whatsappUrl, "_blank");
   };
 
@@ -45,7 +43,7 @@ function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         <div className="space-y-2">
-          <p className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#1A52A2]">01. Client Name</p>
+          <p className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#1A52A2]">YOUR NAME</p>
           <input 
             type="text" 
             required
@@ -55,7 +53,7 @@ function ContactForm() {
           />
         </div>
         <div className="space-y-2">
-          <p className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#1A52A2]">02. Connection</p>
+          <p className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#1A52A2]">WORK EMAIL</p>
           <input 
             type="email" 
             required
@@ -66,19 +64,31 @@ function ContactForm() {
         </div>
       </div>
 
-      <div className="space-y-2">
-        <p className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#DA1F28]">03. Targeted Service</p>
-        <input 
-          type="text" 
-          value={selectedService}
-          onChange={(e) => setSelectedService(e.target.value)}
-          className="w-full bg-blue-50/50 font-bold text-[#0a132e] rounded-xl px-5 py-3.5 md:px-6 md:py-4 outline-none focus:ring-2 ring-[#DA1F28]/20 border border-blue-100 transition-all text-sm md:text-base" 
-          placeholder="Service selection auto-fills here..." 
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="space-y-2">
+          <p className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#DA1F28]">PRODUCT INTEREST</p>
+          <input 
+            type="text" 
+            value={selectedProduct}
+            onChange={(e) => setSelectedProduct(e.target.value)}
+            className="w-full bg-red-50/30 font-bold text-[#0a132e] rounded-xl px-5 py-3.5 md:px-6 md:py-4 outline-none focus:ring-2 ring-[#DA1F28]/20 border border-red-100/50 transition-all text-sm md:text-base" 
+            placeholder="Specific product name..." 
+          />
+        </div>
+        <div className="space-y-2">
+          <p className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#1A52A2]">SERVICE TYPE</p>
+          <input 
+            type="text" 
+            value={selectedService}
+            onChange={(e) => setSelectedService(e.target.value)}
+            className="w-full bg-blue-50/50 font-bold text-[#0a132e] rounded-xl px-5 py-3.5 md:px-6 md:py-4 outline-none focus:ring-2 ring-[#1A52A2]/20 border border-blue-100 transition-all text-sm md:text-base" 
+            placeholder="Maintenance, Installation, etc." 
+          />
+        </div>
       </div>
 
       <div className="space-y-2">
-        <p className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#1A52A2]">04. Transmission Message</p>
+        <p className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#1A52A2]">Message</p>
         <textarea 
           rows={4} 
           required
@@ -94,8 +104,6 @@ function ContactForm() {
     </form>
   );
 }
-
-// ... rest of your Contact component remains exactly as you provided ...
 
 export default function Contact() {
   const offices = [
@@ -163,7 +171,7 @@ export default function Contact() {
                     </div>
                     <div className="bg-white px-4 py-1.5 md:px-5 md:py-2 rounded-full border border-slate-200 flex items-center gap-2 md:gap-3 shadow-sm">
                       <Mail className="w-3 h-3 md:w-3.5 md:h-3.5" style={{ color: office.accent }} />
-                      <span className="text-xs md:text-sm font-bold text-[#0a132e]">Email HQ</span>
+                      <span className="text-xs md:text-sm font-bold text-[#0a132e]">atharvaent101@gmail.com</span>
                     </div>
                   </div>
                 </div>
@@ -197,7 +205,7 @@ export default function Contact() {
           </div>
           <div className="h-[400px] md:h-[650px] w-full relative group overflow-hidden rounded-[1.5rem] md:rounded-[2rem] shadow-2xl border border-slate-100 bg-white">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.568341640538!2d73.9118128751912!3d18.503254982587523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1966568600d%3A0xf639999684784a0d!2sMega%20Center%2C%20Hadapsar%2C%20Pune%2C%20Maharashtra%20411028!5e0!3m2!1sen!2sin!4v1715520000000!5m2!1sen!2sin" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.511736184518!2d73.9248742!3d18.5057039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c18d96b3287f%3A0x6b776856001229a8!2sMega%20Center!5e0!3m2!1sen!2sin!4v1713500000000!5m2!1sen!2sin" 
               className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-1000" 
               allowFullScreen="" 
               loading="lazy" 

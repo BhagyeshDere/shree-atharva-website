@@ -92,15 +92,7 @@ export default function Clients() {
           whileInView={{ opacity: 1, scale: 1 }}
           className="group cursor-default"
         >
-          <div className="inline-flex items-center gap-4 px-8 py-3 border border-slate-100 rounded-full bg-white shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-300 hover:shadow-[0_10px_40px_-10px_rgba(26,82,162,0.15)] hover:border-[#1A52A2]/20">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#DA1F28] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#DA1F28]"></span>
-            </span>
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 transition-colors group-hover:text-[#1A52A2]">
-              Ongoing Projects Across 15+ Districts
-            </p>
-          </div>
+          
         </motion.div>
       </div>
     </section>

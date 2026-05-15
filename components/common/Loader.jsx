@@ -134,10 +134,7 @@ export default function Loader() {
                     Engineering Excellence since 2014
                   </h2>
                 </div>
-                <p className="text-[12px] md:text-base font-semibold leading-relaxed text-slate-500 tracking-wide uppercase px-4">
-                  Leading Government Licensed Agency specializing in turnkey Industrial Fire Protection, 
-                  Safety Solutions, and specialized Engineering Services.
-                </p>
+                
               </motion.div>
             </div>
 
@@ -165,9 +162,7 @@ export default function Loader() {
             className="absolute bottom-10 w-full flex flex-col items-center text-center px-4"
           >
              <div className="w-12 h-[2px] mb-4" style={{ backgroundColor: brandRed }} />
-             <p className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-[0.5em]">
-               Class 'A' Licensed Fire Safety Engineers
-             </p>
+            
           </motion.div>
 
           {/* DYNAMIC GRID OVERLAY */}

@@ -103,13 +103,7 @@ export default function AboutHero() {
           A
         </motion.div>
         
-        {/* Floating Detail */}
-        <div className="absolute top-1/2 right-4 md:right-10 -translate-y-1/2 hidden lg:block opacity-40">
-          <div className="flex items-center gap-6 rotate-90">
-             <span className="text-[11px] font-black uppercase tracking-[0.6em] text-white/50">Since 2010</span>
-             <div className="w-16 h-[2px] bg-gradient-to-r from-[#DA1F28] to-transparent" />
-          </div>
-        </div>
+        
       </div>
 
     </section>

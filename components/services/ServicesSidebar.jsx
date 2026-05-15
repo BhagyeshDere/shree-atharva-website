@@ -3,7 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import servicesData from "@/data/servicesData";
-import { Layers, Zap, ShieldCheck, ChevronRight, ChevronLeft } from "lucide-react";
+import { Layers, Zap, ChevronRight } from "lucide-react";
 
 export default function ServicesSidebar({ activeService, setActiveService }) {
   const scrollRef = useRef(null);
@@ -20,49 +20,41 @@ export default function ServicesSidebar({ activeService, setActiveService }) {
   }, [activeService]);
 
   return (
-    /* 
-       CONTAINER RESPONSIVENESS: 
-       - Mobile: Sticky at top (just below navbar), full width, no margin.
-       - Desktop: Sticky side column with your original max-width.
+    /* FIXED RESPONSIVENESS: 
+       - Mobile top-20: Provides enough clearance for the fixed navbar.
+       - Mobile z-40: Stays below the navbar (z-9999) but above hero content.
     */
-    <div className="sticky top-16 md:top-24 lg:top-32 h-fit w-full lg:max-w-[380px] xl:max-w-[420px] px-0 lg:px-0 z-40 lg:z-30 mb-8 lg:mb-0">
-      <div className="relative overflow-hidden bg-white lg:rounded-[2rem] shadow-[0_20px_40px_rgba(10,19,46,0.08)] lg:shadow-[0_40px_80px_rgba(10,19,46,0.15)] border-b lg:border border-slate-100">
+    <div className="sticky top-20 md:top-28 lg:top-32 h-fit w-full lg:max-w-[380px] xl:max-w-[420px] px-0 lg:px-0 z-[40] mb-8 lg:mb-0">
+      <div className="relative overflow-hidden bg-white lg:rounded-[2rem] shadow-[0_10px_30px_rgba(10,19,46,0.05)] lg:shadow-[0_40px_80px_rgba(10,19,46,0.15)] border-b lg:border border-slate-100">
         
-        {/* Status Bar - Hidden on small mobile to save space */}
-        <div className="bg-[#0A132E] px-6 py-2 hidden sm:flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <ShieldCheck size={10} className="text-[#DA1F28]" />
-            <span className="text-[9px] font-black text-white/60 uppercase tracking-[0.2em]">Verified Provider</span>
-          </div>
+        {/* Status Bar - Hidden on mobile to keep navbar area clean */}
+        <div className="bg-[#0A132E] px-6 py-2 hidden lg:flex justify-between items-center">
           <div className="flex gap-1.5">
              <div className="w-1 h-1 rounded-full bg-white/20" />
              <div className="w-1 h-1 rounded-full bg-white/20" />
           </div>
         </div>
 
-        {/* Header Section - Condensed on Mobile */}
-        <div className="relative p-4 md:p-6 lg:p-8 border-b border-slate-50 bg-white">
+        {/* Header Section - Condensed padding for mobile */}
+        <div className="relative p-3 md:p-4 lg:p-8 border-b border-slate-50 bg-white">
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
                 style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20L0 20z' fill='%230A132E' fill-rule='evenodd'/%3E%3C/svg%3E")` }} 
           />
           
           <div className="relative flex items-center justify-between">
             <div className="flex items-center gap-3 lg:gap-4">
-              <div className="p-2 lg:p-3.5 rounded-xl lg:rounded-2xl bg-gradient-to-br from-[#0A132E] to-[#1A52A2] text-white shadow-lg">
-                 <Layers size={18} className="lg:hidden" />
+              <div className="p-2 lg:p-3.5 rounded-lg lg:rounded-2xl bg-gradient-to-br from-[#0A132E] to-[#1A52A2] text-white shadow-lg">
+                 <Layers size={16} className="lg:hidden" />
                  <Layers size={22} className="hidden lg:block" />
               </div>
               <div>
-                <h2 className="text-[9px] lg:text-[11px] font-black text-slate-400 uppercase tracking-[0.3em] mb-0.5 lg:mb-1">
-                    Navigation
-                </h2>
-                <h2 className="text-sm lg:text-base font-black text-[#0A132E] uppercase tracking-[0.1em] leading-none">
+                <h2 className="text-[10px] lg:text-base font-black text-[#0A132E] uppercase tracking-[0.1em] leading-none">
                   Our Services
                 </h2>
               </div>
             </div>
             
-            {/* Mobile Swipe Indicator */}
+            {/* Mobile Swipe Indicator - Visible only on mobile/tablet */}
             <div className="lg:hidden flex items-center gap-1 text-[#DA1F28] animate-pulse">
               <span className="text-[8px] font-bold uppercase">Swipe</span>
               <ChevronRight size={12} />
@@ -74,7 +66,7 @@ export default function ServicesSidebar({ activeService, setActiveService }) {
         <div className="relative z-10 flex flex-col bg-white">
           <div 
             ref={scrollRef}
-            className="flex lg:flex-col overflow-x-auto lg:overflow-y-auto lg:max-h-[60vh] custom-sidebar-scroll transition-all py-3 px-4 lg:px-3 gap-2 lg:gap-0 no-scrollbar sm:scrollbar-auto"
+            className="flex lg:flex-col overflow-x-auto lg:overflow-y-auto lg:max-h-[60vh] custom-sidebar-scroll transition-all py-2 px-4 lg:px-3 gap-2 lg:gap-0 no-scrollbar"
           >
             {servicesData.map((service, index) => (
               <div 
@@ -97,35 +89,16 @@ export default function ServicesSidebar({ activeService, setActiveService }) {
         <div className="hidden lg:block p-5 bg-slate-50/80 border-t border-slate-100">
             <div className="bg-white rounded-2xl p-4 border border-slate-200/50 flex items-center gap-3 shadow-sm">
                 <div className="w-2 h-2 rounded-full bg-[#DA1F28] animate-pulse" />
-                <span className="text-[10px] font-extrabold text-slate-500 uppercase tracking-widest leading-tight">Select a service to view technical specifications</span>
+                <span className="text-[10px] font-extrabold text-slate-500 uppercase tracking-widest leading-tight">Select a service for technical specs</span>
             </div>
         </div>
       </div>
 
       <style jsx global>{`
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .no-scrollbar {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
-        }
-        .custom-sidebar-scroll::-webkit-scrollbar {
-          width: 4px;
-          height: 4px;
-        }
-        .custom-sidebar-scroll::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        .custom-sidebar-scroll::-webkit-scrollbar-thumb {
-          background: #cbd5e1;
-          border-radius: 20px;
-        }
-        .custom-sidebar-scroll::-webkit-scrollbar-thumb:hover {
-          background: #1A52A2;
-        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .custom-sidebar-scroll::-webkit-scrollbar { width: 4px; height: 4px; }
+        .custom-sidebar-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 20px; }
       `}</style>
     </div>
   );
@@ -134,69 +107,38 @@ export default function ServicesSidebar({ activeService, setActiveService }) {
 const ServiceButton = ({ service, isActive, onClick, index }) => (
   <button 
     onClick={onClick} 
-    className="relative w-full group outline-none py-1 lg:py-1.5"
+    className="relative group outline-none py-1 lg:w-full"
   >
     <div
-      className={`relative z-10 w-full text-left px-4 lg:px-5 py-2.5 lg:py-4 rounded-xl lg:rounded-2xl transition-all duration-500 flex items-center justify-between overflow-hidden border whitespace-nowrap lg:whitespace-normal ${
+      className={`relative z-10 px-4 lg:px-5 py-2 lg:py-4 rounded-lg lg:rounded-2xl transition-all duration-500 flex items-center justify-between border whitespace-nowrap lg:whitespace-normal ${
         isActive 
-          ? "bg-[#0A132E] border-[#0A132E] shadow-lg lg:shadow-xl lg:translate-x-1" 
-          : "bg-white lg:bg-transparent border-slate-200 lg:border-transparent hover:bg-slate-50 hover:border-slate-200"
+          ? "bg-[#0A132E] border-[#0A132E] shadow-md lg:shadow-xl lg:translate-x-1" 
+          : "bg-white lg:bg-transparent border-slate-200 lg:border-transparent"
       }`}
     >
       <div className="flex items-center gap-3 lg:gap-4 relative z-20">
-        {/* Number/Icon Container */}
-        <div className={`w-7 h-7 lg:w-9 lg:h-9 rounded-lg lg:rounded-xl flex items-center justify-center transition-all duration-500 ${
+        <div className={`w-6 h-6 lg:w-9 lg:h-9 rounded lg:rounded-xl flex items-center justify-center transition-all duration-500 ${
             isActive ? "bg-[#DA1F28] text-white" : "bg-slate-100 text-slate-400"
         }`}>
           {isActive ? (
-            <motion.div
-              initial={{ scale: 0, rotate: -90 }}
-              animate={{ scale: 1, rotate: 0 }}
-            >
-              <Zap size={12} fill="currentColor" className="lg:w-4 lg:h-4" />
-            </motion.div>
+            <Zap size={10} fill="currentColor" className="lg:w-4 lg:h-4" />
           ) : (
-            <span className="text-[10px] lg:text-[11px] font-black tracking-tighter">
+            <span className="text-[9px] lg:text-[11px] font-black">
               {(index + 1).toString().padStart(2, '0')}
             </span>
           )}
         </div>
 
-        <span className={`font-bold text-[11px] lg:text-[13px] uppercase tracking-wider transition-all duration-500 ${
-          isActive ? "text-white" : "text-slate-600 group-hover:text-[#0A132E]"
+        <span className={`font-bold text-[10px] lg:text-[13px] uppercase tracking-wider transition-all duration-500 ${
+          isActive ? "text-white" : "text-slate-600"
         }`}>
           {service.title}
         </span>
       </div>
 
-      {/* Decorative Arrow Line - Desktop Only */}
       <div className={`hidden lg:block h-[2px] transition-all duration-700 ease-in-out rounded-full ${
-        isActive ? "w-8 bg-[#DA1F28]" : "w-0 bg-slate-200 group-hover:w-4"
+        isActive ? "w-8 bg-[#DA1F28]" : "w-0 bg-slate-200"
       }`} />
-
-      {/* Subtle Shine Effect for Active State */}
-      {isActive && (
-        <motion.div 
-          initial={{ x: '-100%' }}
-          animate={{ x: '100%' }}
-          transition={{ repeat: Infinity, duration: 2.5, ease: "linear" }}
-          className="absolute inset-0 z-10 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"
-        />
-      )}
     </div>
-
-    {/* Transition Glow Background */}
-    <AnimatePresence>
-      {isActive && (
-        <motion.div 
-          layoutId="sidebarActiveGlow"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="absolute inset-0 z-0 bg-[#0A132E]/5 rounded-2xl blur-md hidden lg:block"
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        />
-      )}
-    </AnimatePresence>
   </button>
 );

@@ -36,8 +36,8 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    // Tightened padding from py-24/32 to py-16/20
-    <section className="relative py-16 md:py-20 overflow-hidden bg-[#f8fafc]">
+    // Tightened overall section padding: pb-16 on mobile and pb-20 on desktop
+    <section className="relative pt-16 pb-12 md:pt-20 md:pb-16 overflow-hidden bg-[#f8fafc]">
       
       {/* Structural Decor */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -51,8 +51,8 @@ export default function WhyChooseUs() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        {/* Editorial Heading - Reduced mb-20 to mb-12 */}
-        <div className="flex flex-col items-center text-center mb-12">
+        {/* Editorial Heading */}
+        <div className="flex flex-col items-center text-center mb-10 md:mb-14">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -114,21 +114,6 @@ export default function WhyChooseUs() {
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom Trust Badge - Reduced mt-16 to mt-10 */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-10 flex flex-col items-center"
-        >
-          <div className="inline-flex items-center gap-3 px-8 py-3 border border-slate-200 rounded-full bg-white shadow-sm relative overflow-hidden">
-              <div className="w-2 h-2 rounded-full bg-[#DA1F28] animate-pulse relative z-10" />
-              <span className="text-slate-600 font-bold uppercase tracking-[0.2em] text-[9px] relative z-10">
-                Licensed Government Contractor
-              </span>
-          </div>
-        </motion.div>
       </div>
 
       {/* Industrial Side Lines */}

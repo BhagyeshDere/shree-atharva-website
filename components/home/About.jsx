@@ -100,16 +100,7 @@ export default function About() {
       </div>
       
       {/* Scroll Vertical Bar - Centered vertically relative to the section */}
-      <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-4">
-        <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest rotate-90 origin-center mb-10">Atharva Safety</span>
-        <div className="w-[1px] h-24 bg-slate-200 relative overflow-hidden">
-          <motion.div 
-            animate={{ y: [0, 96] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 left-0 w-full h-6 bg-[#DA1F28]"
-          />
-        </div>
-      </div>
+    
     </section>
   );
 }
