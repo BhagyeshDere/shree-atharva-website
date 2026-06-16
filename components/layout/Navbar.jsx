@@ -1,15 +1,25 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, ChevronRight } from "lucide-react";
+import { Menu, X, Phone, ChevronRight, ChevronDown } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
+  { 
+    name: "Products", 
+    href: "/products",
+    dropdown: [
+      { name: "Fire Extinguishers", href: "/products/fire-extinguishers" },
+      { name: "Hydrant System", href: "/products/hydrant-system" },
+      { name: "Sprinkler System", href: "/products/sprinkler-system" },
+      { name: "Fire Alarm System", href: "/products/fire-alarm-system" },
+      { name: "Water Flow Control Valves", href: "/products/water-flow-control-valves" },
+    ]
+  },
   { name: "Services", href: "/services" },
-  { name: "Products", href: "/products" },
   { name: "Clients", href: "/clients" },
   { name: "Contact", href: "/contact" },
 ];
@@ -17,6 +27,9 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [productDropdownOpen, setProductDropdownOpen] = useState(false);
+  const [mobileProductOpen, setMobileProductOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,6 +46,17 @@ export default function Navbar() {
       document.body.style.overflow = "unset";
     }
   }, [isOpen]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setProductDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <nav className={`fixed top-0 left-0 w-full z-[9999] transition-all duration-500 ease-in-out ${
@@ -67,15 +91,58 @@ export default function Navbar() {
 
         {/* Center: Desktop Pages Text */}
         <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-6 xl:gap-8 text-sm font-bold text-slate-700">
-          {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              href={link.href}
-              className="hover:text-[#1A52A2] transition-colors whitespace-nowrap"
-            >
-              {link.name}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            if (link.dropdown) {
+              return (
+                <div 
+                  key={link.name} 
+                  className="relative"
+                  ref={dropdownRef}
+                  onMouseEnter={() => setProductDropdownOpen(true)}
+                  onMouseLeave={() => setProductDropdownOpen(false)}
+                >
+                  <button 
+                    className="hover:text-[#1A52A2] flex items-center gap-1 transition-colors whitespace-nowrap font-bold text-sm text-slate-700 focus:outline-none py-2"
+                  >
+                    {link.name}
+                    <ChevronDown size={14} className={`transition-transform duration-300 ${productDropdownOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  
+                  <AnimatePresence>
+                    {productDropdownOpen && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute left-0 mt-1 w-64 bg-white border border-slate-100 rounded-2xl shadow-xl py-3 z-[10000]"
+                      >
+                        {link.dropdown.map((subLink) => (
+                          <Link
+                            key={subLink.name}
+                            href={subLink.href}
+                            className="block px-5 py-2.5 text-xs font-bold text-slate-600 hover:text-[#1A52A2] hover:bg-[#1A52A2]/5 transition-all"
+                          >
+                            {subLink.name}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            }
+
+            return (
+              <Link 
+                key={link.name} 
+                href={link.href}
+                className="hover:text-[#1A52A2] transition-colors whitespace-nowrap"
+              >
+                {link.name}
+              </Link>
+            );
+          })}
         </div>
           
         {/* Right: CTA & Contact */}
@@ -114,7 +181,10 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                setMobileProductOpen(false);
+              }}
               className="fixed inset-0 bg-[#0A132E]/60 backdrop-blur-sm z-[1100] lg:hidden"
             />
 
@@ -132,7 +202,10 @@ export default function Navbar() {
                    <span className="font-black text-[#1A52A2] text-sm uppercase tracking-tighter">Atharva</span>
                 </div>
                 <button 
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setIsOpen(false);
+                    setMobileProductOpen(false);
+                  }}
                   className="p-2 bg-slate-50 text-slate-400 rounded-full hover:text-[#DA1F28] transition-colors"
                 >
                   <X size={20} />
@@ -142,19 +215,66 @@ export default function Navbar() {
               {/* Navigation Links */}
               <div className="flex-1 overflow-y-auto py-6 px-4 space-y-1">
                 <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-4 px-4">Main Menu</p>
-                {navLinks.map((link) => (
-                  <Link 
-                    key={link.name}
-                    href={link.href} 
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-between group py-3.5 px-4 rounded-xl hover:bg-[#1A52A2]/5 transition-all"
-                  >
-                    <span className="text-base font-bold text-slate-700 group-hover:text-[#1A52A2]">
-                      {link.name}
-                    </span>
-                    <ChevronRight size={18} className="text-slate-300 group-hover:text-[#1A52A2] group-hover:translate-x-1 transition-all" />
-                  </Link>
-                ))}
+                {navLinks.map((link) => {
+                  if (link.dropdown) {
+                    return (
+                      <div key={link.name} className="flex flex-col">
+                        <button 
+                          onClick={() => setMobileProductOpen(!mobileProductOpen)}
+                          className="flex items-center justify-between py-3.5 px-4 rounded-xl hover:bg-[#1A52A2]/5 transition-all text-left w-full focus:outline-none"
+                        >
+                          <span className="text-base font-bold text-slate-700">
+                            {link.name}
+                          </span>
+                          <ChevronDown size={18} className={`text-slate-300 transition-transform duration-300 ${mobileProductOpen ? "rotate-180 text-[#1A52A2]" : ""}`} />
+                        </button>
+                        
+                        <AnimatePresence initial={false}>
+                          {mobileProductOpen && (
+                            <motion.div 
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.25 }}
+                              className="overflow-hidden pl-4 bg-slate-50/50 rounded-xl mt-1"
+                            >
+                              {link.dropdown.map((subLink) => (
+                                <Link 
+                                  key={subLink.name}
+                                  href={subLink.href} 
+                                  onClick={() => {
+                                    setIsOpen(false);
+                                    setMobileProductOpen(false);
+                                  }}
+                                  className="flex items-center justify-between py-3 px-4 rounded-xl hover:text-[#1A52A2] transition-all"
+                                >
+                                  <span className="text-sm font-bold text-slate-600">
+                                    {subLink.name}
+                                  </span>
+                                  <ChevronRight size={14} className="text-slate-300" />
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <Link 
+                      key={link.name}
+                      href={link.href} 
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center justify-between group py-3.5 px-4 rounded-xl hover:bg-[#1A52A2]/5 transition-all"
+                    >
+                      <span className="text-base font-bold text-slate-700 group-hover:text-[#1A52A2]">
+                        {link.name}
+                      </span>
+                      <ChevronRight size={18} className="text-slate-300 group-hover:text-[#1A52A2] group-hover:translate-x-1 transition-all" />
+                    </Link>
+                  );
+                })}
               </div>
 
               {/* Sidebar Footer */}
