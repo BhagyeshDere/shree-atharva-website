@@ -12,11 +12,33 @@ const navLinks = [
     name: "Products", 
     href: "/products",
     dropdown: [
-      { name: "Fire Extinguishers", href: "/products/fire-extinguishers" },
-      { name: "Hydrant System", href: "/products/hydrant-system" },
-      { name: "Sprinkler System", href: "/products/sprinkler-system" },
-      { name: "Fire Alarm System", href: "/products/fire-alarm-system" },
-      { name: "Water Flow Control Valves", href: "/products/water-flow-control-valves" },
+      { name: "Accessories", href: "/products/accessories" },
+      { name: "Alarm System", href: "/products/alarm-system" },
+      { name: "Branch Pipes", href: "/products/branch-pipes" },
+      { name: "Canvas Hose", href: "/products/canvas-hose" },
+      { name: "Fire Extinguisher", href: "/products/fire-extinguisher" },
+      { name: "Fire Inlet", href: "/products/fire-inlet" },
+      { name: "Flow Switch", href: "/products/flow-switch" },
+      { name: "Hardware & Tools", href: "/products/hardware-and-tools" },
+      { name: "Hose Box", href: "/products/hose-box" },
+      { name: "Hose Reel Drum", href: "/products/hose-reel-drum" },
+      { name: "Hydrant Spares", href: "/products/hydrant-spares" },
+      { name: "Hydrant Valve", href: "/products/hydrant-valve" },
+      { name: "IGNITRON", href: "/products/ignitron" },
+      { name: "PA System", href: "/products/pa-system" },
+      { name: "Paint", href: "/products/paint" },
+      { name: "Pressure Gauge", href: "/products/pressure-gauge" },
+      { name: "Pressure Switch (DANFOSS) KP 36", href: "/products/pressure-switch-danfoss-kp-36" },
+      { name: "Pumps", href: "/products/pumps" },
+      { name: "Rubber Bellow", href: "/products/rubber-bellow" },
+      { name: "Safety Items", href: "/products/safety-items" },
+      { name: "Sign Board", href: "/products/sign-board" },
+      { name: "Sprinkler", href: "/products/sprinkler" },
+      { name: "Thermoplastic Hose", href: "/products/thermoplastic-hose" },
+      { name: "U Clamp", href: "/products/u-clamp" },
+      { name: "Valves", href: "/products/valves" },
+      { name: "Wrapping Coating Material", href: "/products/wrapping-coating-material" },
+     
     ]
   },
   { name: "Services", href: "/services" },
@@ -115,13 +137,13 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute left-0 mt-1 w-64 bg-white border border-slate-100 rounded-2xl shadow-xl py-3 z-[10000]"
+                        className="absolute left-1/2 -translate-x-1/2 mt-1 w-[32rem] bg-white border border-slate-100 rounded-2xl shadow-xl p-4 z-[10000] grid grid-cols-2 gap-x-2 max-h-[70vh] overflow-y-auto no-scrollbar"
                       >
                         {link.dropdown.map((subLink) => (
                           <Link
                             key={subLink.name}
                             href={subLink.href}
-                            className="block px-5 py-2.5 text-xs font-bold text-slate-600 hover:text-[#1A52A2] hover:bg-[#1A52A2]/5 transition-all"
+                            className="block px-4 py-2 text-[11px] font-bold text-slate-600 hover:text-[#1A52A2] hover:bg-[#1A52A2]/5 rounded-xl transition-all truncate"
                           >
                             {subLink.name}
                           </Link>
@@ -213,7 +235,7 @@ export default function Navbar() {
               </div>
 
               {/* Navigation Links */}
-              <div className="flex-1 overflow-y-auto py-6 px-4 space-y-1">
+              <div className="flex-1 overflow-y-auto py-6 px-4 space-y-1 no-scrollbar">
                 <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-4 px-4">Main Menu</p>
                 {navLinks.map((link) => {
                   if (link.dropdown) {
@@ -236,7 +258,7 @@ export default function Navbar() {
                               animate={{ height: "auto", opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
                               transition={{ duration: 0.25 }}
-                              className="overflow-hidden pl-4 bg-slate-50/50 rounded-xl mt-1"
+                              className="overflow-hidden pl-4 bg-slate-50/50 rounded-xl mt-1 max-h-[40vh] overflow-y-auto no-scrollbar"
                             >
                               {link.dropdown.map((subLink) => (
                                 <Link 
@@ -246,9 +268,9 @@ export default function Navbar() {
                                     setIsOpen(false);
                                     setMobileProductOpen(false);
                                   }}
-                                  className="flex items-center justify-between py-3 px-4 rounded-xl hover:text-[#1A52A2] transition-all"
+                                  className="flex items-center justify-between py-2.5 px-4 rounded-xl hover:text-[#1A52A2] transition-all"
                                 >
-                                  <span className="text-sm font-bold text-slate-600">
+                                  <span className="text-xs font-bold text-slate-600">
                                     {subLink.name}
                                   </span>
                                   <ChevronRight size={14} className="text-slate-300" />
@@ -304,6 +326,17 @@ export default function Navbar() {
           </>
         )}
       </AnimatePresence>
+      
+      {/* Global CSS Injectors for Clean Multi-item Dropdown Scroll paths */}
+      <style jsx global>{`
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </nav>
   );
 }
