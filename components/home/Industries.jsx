@@ -43,7 +43,8 @@ export default function Industries() {
           <span className="inline-block bg-[#ef1d27] text-white px-10 py-3 uppercase tracking-[0.25em] text-[10px] font-black shadow-lg shadow-red-500/20">
             Industries We Serve
           </span>
-          <h2 className="mt-6 text-4xl md:text-7xl font-black text-[#0b2c6b] leading-[0.95] tracking-tighter uppercase">
+          {/* Reduced Heading Sizing for cleaner text presentation on responsive viewports */}
+          <h2 className="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#0b2c6b] leading-[1.0] md:leading-[0.95] tracking-tighter uppercase">
             Providing <span className="text-[#ef1d27]">Safety</span> Solutions
             <br />
             Across Maharashtra

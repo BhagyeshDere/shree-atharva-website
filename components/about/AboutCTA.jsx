@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Phone, ShieldCheck, Award } from "lucide-react";
+import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
 
 export default function AboutCTA() {
   return (
@@ -38,13 +38,13 @@ export default function AboutCTA() {
           </span>
         </motion.div>
 
-        {/* 3. CENTERED TYPOGRAPHY */}
+        {/* 3. CENTERED TYPOGRAPHY (Branded to single line across viewports) */}
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-7xl font-black text-[#0a132e] leading-[0.85] uppercase tracking-tighter"
+          className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-[#0a132e] leading-[1.1] md:leading-[1.0] uppercase tracking-tighter whitespace-nowrap"
         >
-          Ready to <br />
+          Ready to{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1A52A2] to-[#DA1F28]">
             Protect?
           </span>

@@ -61,8 +61,8 @@ export default function AboutHero() {
           </span>
         </div>
 
-        {/* High-Impact Heading */}
-        <h1 className="mt-8 md:mt-10 text-4xl sm:text-5xl md:text-8xl lg:text-9xl font-black text-white uppercase leading-[0.95] md:leading-[0.9] tracking-tighter">
+        {/* Scaled-down high-impact heading typography sizing */}
+        <h1 className="mt-6 md:mt-8 text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase leading-[1.0] md:leading-[0.95] tracking-tighter">
           Building <br />
           <motion.span 
             initial={{ backgroundPosition: "0% 50%" }}
@@ -102,8 +102,6 @@ export default function AboutHero() {
         >
           A
         </motion.div>
-        
-        
       </div>
 
     </section>

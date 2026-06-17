@@ -81,20 +81,22 @@ export default function Projects() {
       <div className="max-w-[1440px] mx-auto px-6 relative z-10">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row items-end justify-between mb-8 md:mb-12 gap-8">
-          <div className="max-w-2xl">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 md:mb-12 gap-6">
+          <div className="w-full max-w-4xl">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-3 mb-6"
+              className="flex items-center gap-3 mb-4 md:mb-6"
             >
               <span className="w-12 h-[2px] bg-[#DA1F28]" />
               <span className="text-[#DA1F28] font-black uppercase tracking-[0.4em] text-[10px]">
                 Portfolio Excellence
               </span>
             </motion.div>
-            <h2 className="text-5xl md:text-8xl font-black text-[#0a132e] uppercase tracking-tighter leading-[0.85]">
-              Project <br /> 
+            
+            {/* Removed the line break and optimized font sizes to guarantee a clean, single-line headline */}
+            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#0a132e] uppercase tracking-tighter leading-tight whitespace-nowrap">
+              Project{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1A52A2] to-[#DA1F28] italic">
                 Archives
               </span>
@@ -157,7 +159,7 @@ export default function Projects() {
                           </div>
                           
                           <div>
-                            <h3 className="text-white text-2xl md:text-5xl font-black uppercase tracking-tighter leading-[0.9] mb-3">
+                            <h3 className="text-white text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-[0.9] mb-3">
                               {project.title}
                             </h3>
                             <div className="w-12 h-1 bg-[#DA1F28]" />

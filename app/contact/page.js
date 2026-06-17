@@ -144,7 +144,8 @@ export default function Contact() {
                 <Activity className="text-[#DA1F28] w-4 h-4 md:w-5 md:h-5" />
                 <span className="text-white/80 font-black uppercase tracking-[0.4em] md:tracking-[0.6em] text-[8px] md:text-[10px]">Operational 24/7</span>
               </div>
-              <h1 className="text-[12vw] md:text-9xl font-black text-white tracking-tighter uppercase leading-[0.9] md:leading-[0.85]">
+              {/* Reduced title sizes on all screen sizes for an elegant and balanced typography weight */}
+              <h1 className="text-[9vw] sm:text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter uppercase leading-[0.95] md:leading-[0.85]">
                 Start a <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1A52A2] to-blue-400">Conversation</span>
               </h1>
             </motion.div>

@@ -31,7 +31,8 @@ export default function Clients() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl md:text-8xl font-black text-[#0a132e] uppercase tracking-tighter leading-[0.85] mb-6">
+            {/* Reduced Heading Sizing to guarantee clean text wrapping across responsive breakpoints */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#0a132e] uppercase tracking-tighter leading-[1.0] md:leading-[0.85] mb-6">
               Proven <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#1A52A2] to-[#0a132e]">Track Record</span>
             </h2>
           </motion.div>

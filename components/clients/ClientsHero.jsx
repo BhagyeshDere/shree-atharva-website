@@ -55,12 +55,12 @@ export default function ClientsHero() {
           </span>
         </motion.div>
 
-        {/* Heading with Elegant Logo Gradient */}
+        {/* Heading with Elegant Logo Gradient - Scaled down for a more refined responsive balance */}
         <motion.h1 
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-6xl md:text-9xl font-black text-white leading-[0.9] uppercase tracking-tighter"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[0.95] md:leading-[0.9] uppercase tracking-tighter"
         >
           Our <br className="md:hidden" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] via-white to-[#DA1F28]">

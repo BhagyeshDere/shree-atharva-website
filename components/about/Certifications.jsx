@@ -47,7 +47,8 @@ export default function Certifications() {
             </span>
           </motion.div>
 
-          <h2 className="text-5xl md:text-8xl font-black text-[#0a132e] uppercase leading-[0.85] tracking-tighter">
+          {/* Adjusted heading sizing for smooth fluid typography on all devices */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#0a132e] uppercase leading-[1.0] md:leading-[0.85] tracking-tighter">
             Verified <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1A52A2] to-[#DA1F28]">Authority</span>
           </h2>
 
@@ -63,7 +64,6 @@ export default function Certifications() {
             animate={{ x: ["0%", "-50%"] }}
             transition={{
               duration: 40,
-              with: "linear",
               ease: "linear",
               repeat: Infinity,
             }}
@@ -104,7 +104,7 @@ export default function Certifications() {
         </div>
       </div>
 
-      {/* 5. LIGHTBOX */}
+      {/* 5. LIGHTBOX - Optimized stacking hierarchy, padding offsets, and image heights */}
       <AnimatePresence>
         {selectedImg && (
           <motion.div 
@@ -112,37 +112,44 @@ export default function Certifications() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImg(null)}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-[#050810]/95 backdrop-blur-xl p-4 md:p-10 cursor-zoom-out"
+            className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/95 backdrop-blur-md pt-20 pb-6 px-4 md:px-8 cursor-zoom-out select-none"
           >
-            <motion.div 
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              className="relative w-full h-full flex items-center justify-center"
-              onClick={(e) => e.stopPropagation()}
-            >
+            {/* Top Bar for close action - Lifted to override headers */}
+            <div className="absolute top-0 inset-x-0 h-20 flex items-center justify-end px-6 z-[10000] pointer-events-none">
               <button 
                 onClick={() => setSelectedImg(null)}
-                className="absolute top-2 right-2 md:-top-10 md:-right-10 text-white/50 hover:text-white transition-colors z-[110]"
+                className="pointer-events-auto text-white/70 hover:text-white bg-white/10 active:bg-white/20 p-2.5 rounded-full transition-all duration-200 shadow-xl"
+                aria-label="Close modal"
               >
-                <X size={36} strokeWidth={1.5} />
+                <X size={24} className="md:w-7 md:h-7" />
               </button>
-              
-              <div className="relative w-full h-full flex items-center justify-center">
-                 <img 
+            </div>
+            
+            {/* Centered Image Container Frame */}
+            <motion.div 
+              initial={{ scale: 0.95, y: 15 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 15 }}
+              transition={{ type: "spring", damping: 28, stiffness: 200 }}
+              className="relative w-full flex-1 flex items-center justify-center overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative p-1.5 bg-neutral-900 border border-white/10 rounded-lg shadow-2xl max-w-full flex items-center justify-center">
+                <img 
                   src={selectedImg} 
-                  alt="Enlarged Certificate" 
-                  className="max-w-full max-h-full object-contain shadow-2xl rounded-sm border border-white/20"
+                  alt="Enlarged Certificate Document" 
+                  className="w-auto h-auto max-w-[85vw] max-h-[58vh] md:max-h-[64vh] lg:max-h-[68vh] object-contain rounded-sm select-none"
                 />
               </div>
-
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-4">
-                <div className="flex items-center gap-3 bg-[#DA1F28] px-5 py-2 md:px-6 md:py-2.5 rounded-full text-white shadow-2xl">
-                  <ShieldCheck className="w-4 h-4 md:w-5 md:h-5" />
-                  <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em]">Official Verification</span>
-                </div>
-              </div>
             </motion.div>
+
+            {/* Bottom Verification Label */}
+            <div className="mt-4 relative z-[10000] pointer-events-none">
+              <div className="flex items-center gap-3 bg-[#DA1F28] px-5 py-2.5 rounded-full text-white shadow-2xl">
+                <ShieldCheck className="w-4 h-4 md:w-5 md:h-5" />
+                <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] whitespace-nowrap">Official Verification</span>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

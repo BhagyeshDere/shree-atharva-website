@@ -5,8 +5,8 @@ import { ShieldCheck, ChevronDown } from "lucide-react";
 
 export default function ServicesHero() {
   return (
-    // Added z-10 and responsive pt-24 to ensure content starts below the fixed navbar on mobile
-    <section className="relative min-h-[80vh] md:h-[85vh] md:min-h-[650px] flex items-center md:items-end justify-center bg-[#F8FAFC] overflow-hidden pb-12 md:pb-20 z-10 pt-24 md:pt-0">
+    // Increased top padding (pt-44 on mobile, md:pt-36 on desktop) to shift the content a little bit further lowerside
+    <section className="relative w-full flex items-center justify-center bg-[#F8FAFC] overflow-hidden pb-4 md:pb-6 z-10 pt-44 md:pt-36">
       
       {/* CLEAN ANIMATED BACKGROUND */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -38,7 +38,7 @@ export default function ServicesHero() {
         />
       </div>
 
-      {/* CENTRAL CONTENT - Fluid padding and alignment */}
+      {/* CENTRAL CONTENT - Removed negative transform translation to allow natural baseline flow further down the viewport axis */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         
         {/* Compact Badge */}
@@ -53,13 +53,13 @@ export default function ServicesHero() {
           </span>
         </motion.div>
 
-        {/* RESPONSIVE HEADING - Uses clamping/fluid sizes */}
+        {/* RESPONSIVE HEADING - Adjusted font size down for cleaner balance */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[1.1] md:leading-[0.9] text-[#0A132E] tracking-tighter">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black uppercase leading-[1.1] md:leading-[0.95] text-[#0A132E] tracking-tighter">
             Fire Safety <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1A52A2] via-[#0A132E] to-[#1A52A2] bg-[length:200%_auto] animate-gradient-x">
               Engineering Services

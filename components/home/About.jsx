@@ -64,19 +64,21 @@ export default function About() {
             Engineering Security Since 2014
           </motion.span>
           
-          <div className="relative inline-block">
-            <h2 className="relative z-10 text-5xl md:text-8xl font-black text-[#0a132e] tracking-tighter uppercase leading-[0.8] mb-4">
+          <div className="relative inline-block w-full max-w-4xl">
+            {/* Reduced Heading sizes slightly for cleaner visual weight and responsiveness */}
+            <h2 className="relative z-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#0a132e] tracking-tighter uppercase leading-[1.0] md:leading-[0.85] mb-4">
               Building a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1A52A2] to-[#1A52A2]/60">Safer</span> <br />
               Future Together
             </h2>
-            <span className="absolute -top-10 left-1/2 -translate-x-1/2 text-[8rem] md:text-[14rem] font-black text-slate-200/40 select-none -z-10 tracking-tighter uppercase hidden md:block">
+            {/* Reduced Background Watermark text tracking/sizing proportionally */}
+            <span className="absolute -top-6 md:-top-10 left-1/2 -translate-x-1/2 text-[4.5rem] sm:text-[6.5rem] md:text-[10rem] lg:text-[11rem] font-black text-slate-200/40 select-none -z-10 tracking-tighter uppercase hidden sm:block">
               PROTECT
             </span>
           </div>
         </div>
 
         {/* CENTRALIZED DETAILED INFORMATION BLOCK */}
-        <div className="max-w-6xl mx-auto text-center px-2 md:px-4">
+        <div className="max-w-5xl mx-auto text-center px-2 md:px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -84,7 +86,8 @@ export default function About() {
             className="space-y-8"
           >
             <div className="relative">
-              <p className="text-slate-600 leading-[1.6] md:leading-[1.8] text-lg md:text-2xl font-medium">
+              {/* Refined typography scales to prevent massive text blocks on tablet ports */}
+              <p className="text-slate-600 leading-[1.6] md:leading-[1.75] text-base sm:text-lg md:text-xl lg:text-2xl font-medium">
                 Since our inception in 2014, <span className="text-[#0a132e] font-bold">Shree Atharva Enterprises</span> has established itself as a premier Government Approved Licensed Agency, specializing in the complete lifecycle of industrial fire protection. We deliver high-precision engineering solutions through a holistic approach that encompasses the <span className="text-[#DA1F28] font-bold">Supply, Installation, Testing, and Commissioning</span> of advanced safety systems. By integrating cutting-edge technology with rigorous regulatory compliance, we safeguard critical human lives and industrial assets across both the Government and Private sectors, ensuring that every project meets 100% safety certification standards while defining new benchmarks for technical excellence in the field of fire security.
               </p>
               

@@ -13,7 +13,8 @@ export default function ClientsFilters({ selected, setSelected }) {
   ];
 
   return (
-    <nav className="relative w-full flex justify-center overflow-hidden pb-4">
+    // Replaced pb-4 with responsive negative margins to pull the UI cleanly upperside closer to the hero section
+    <nav className="relative w-full flex justify-center overflow-hidden pb-0 -mt-6 md:-mt-10 z-30">
       {/* Container is now centered with mx-auto and justify-center */}
       <div className="relative overflow-x-auto no-scrollbar max-w-full px-4">
         <div className="flex flex-row items-center justify-center gap-2 p-1.5 bg-[#0a132e]/5 border border-slate-200/60 rounded-2xl md:rounded-full w-max mx-auto backdrop-blur-sm">

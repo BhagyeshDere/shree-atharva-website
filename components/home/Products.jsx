@@ -83,19 +83,21 @@ export default function Products() {
 
       <div className="max-w-[1440px] mx-auto px-6 sm:px-8 md:px-12 lg:px-16 relative z-10">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8 md:mb-12 items-end">
-          <div className="lg:col-span-10 xl:col-span-9">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:grid-gap-8 mb-8 md:mb-12 items-end">
+          <div className="lg:col-span-9">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} className="flex items-center gap-3 mb-4">
               <span className="w-10 md:w-14 h-[2px] bg-[#DA1F28]" />
               <span className="text-[#DA1F28] font-black uppercase tracking-[0.5em] text-[10px]">Technical Catalog v2.0</span>
             </motion.div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#0a132e] uppercase tracking-tighter leading-[0.85] mb-0 lg:-ml-2">
+            
+            {/* Reduced Headline Sizes slightly to prevent multi-line collision on mid-tier viewpoints */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-[#0a132e] uppercase tracking-tighter leading-[0.9] mb-0 lg:-ml-1">
               Precision <br /> 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1A52A2] via-[#0a132e] to-[#DA1F28]">Engineering</span>
             </h2>
           </div>
           
-          <div className="lg:col-span-2 xl:col-span-3 flex justify-start lg:justify-end gap-3 pb-2">
+          <div className="lg:col-span-3 flex justify-start lg:justify-end gap-3 pb-2">
             <button ref={prevRef} className="w-11 h-11 md:w-14 md:h-14 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:border-[#DA1F28] hover:text-[#DA1F28] transition-all disabled:opacity-20"><ChevronLeft size={20} /></button>
             <button ref={nextRef} className="w-11 h-11 md:w-14 md:h-14 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:border-[#DA1F28] hover:text-[#DA1F28] transition-all disabled:opacity-20"><ChevronRight size={20} /></button>
           </div>
@@ -124,7 +126,7 @@ export default function Products() {
             >
               {products.map((product) => (
                 <SwiperSlide key={product.id}>
-                  <motion.div className="group relative h-[450px] sm:h-[550px] lg:h-[620px] rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-[#121212]">
+                  <motion.div className="group relative h-[450px] sm:h-[540px] lg:h-[580px] rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-[#121212]">
                     <div className="absolute inset-0 z-0 scale-110 group-hover:scale-100 transition-transform duration-1000 ease-in-out">
                       <img src={product.img} alt={product.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity" />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/90" />
@@ -136,12 +138,12 @@ export default function Products() {
                       </div>
                     </div>
 
-                    <div className="absolute inset-0 z-10 flex flex-col justify-end p-8 md:p-14">
+                    <div className="absolute inset-0 z-10 flex flex-col justify-end p-8 md:p-12">
                       <div className="relative">
-                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-white uppercase tracking-tighter mb-3 leading-tight">
+                        <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tighter mb-2 leading-tight">
                           {product.title}
                         </h3>
-                        <p className="text-white/60 text-xs md:text-base font-medium leading-relaxed max-w-sm mb-6 group-hover:text-white/90 transition-colors line-clamp-2 md:line-clamp-none">
+                        <p className="text-white/60 text-xs md:text-sm font-medium leading-relaxed max-w-sm mb-5 group-hover:text-white/90 transition-colors line-clamp-2 md:line-clamp-none">
                           {product.desc}
                         </p>
 
@@ -195,7 +197,7 @@ export default function Products() {
                 </button>
 
                 {/* Left Side: Product Image */}
-                <div className="w-full md:w-1/2 h-64 md:h-auto relative bg-slate-100">
+                <div className="w-full md:w-1/2 h-48 sm:h-64 md:h-auto relative bg-slate-100">
                   <img src={selectedProduct.img} alt={selectedProduct.title} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-6 left-6">
@@ -204,21 +206,21 @@ export default function Products() {
                 </div>
 
                 {/* Right Side: Product Info */}
-                <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto">
-                  <span className="text-[#DA1F28] text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">Product Specifications</span>
-                  <h2 className="text-3xl md:text-5xl font-black text-[#0a132e] uppercase tracking-tighter mb-4 leading-none">
+                <div className="w-full md:w-1/2 p-6 md:p-12 overflow-y-auto">
+                  <span className="text-[#DA1F28] text-[10px] font-black uppercase tracking-[0.4em] mb-3 block">Product Specifications</span>
+                  <h2 className="text-2xl md:text-4xl font-black text-[#0a132e] uppercase tracking-tighter mb-3 leading-none">
                     {selectedProduct.title}
                   </h2>
-                  <p className="text-slate-500 font-medium text-sm md:text-base leading-relaxed mb-8">
+                  <p className="text-slate-500 font-medium text-xs md:text-base leading-relaxed mb-6">
                     {selectedProduct.desc}
                   </p>
 
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     <p className="text-[10px] font-black uppercase tracking-widest text-[#0a132e] border-b border-slate-100 pb-2">Technical Features</p>
                     {selectedProduct.specs?.map((spec, i) => (
                       <div key={i} className="flex items-center gap-3">
-                        <CheckCircle2 size={16} className="text-[#DA1F28]" />
-                        <span className="text-slate-700 text-sm font-bold">{spec}</span>
+                        <CheckCircle2 size={14} className="text-[#DA1F28]" />
+                        <span className="text-slate-700 text-xs md:text-sm font-bold">{spec}</span>
                       </div>
                     ))}
                   </div>
