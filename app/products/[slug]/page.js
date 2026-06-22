@@ -1,11 +1,14 @@
-import productsData from "@/data/productsData";
-import Link from "next/link";
+"use client";
+
+import { use } from "react";
+import { useState } from "react";
 import { notFound } from "next/navigation";
+import productsData from "@/data/productsData";
 
-export default async function ProductPage({ params }) {
+export default function ProductPage({ params }) {
 
-  // Next.js 15+
-  const { slug } = await params;
+  // unwrap params promise
+  const { slug } = use(params);
 
   const product = productsData.find(
     item => item.slug === slug
@@ -15,117 +18,103 @@ export default async function ProductPage({ params }) {
     notFound();
   }
 
+  const [selectedCategory, setSelectedCategory] = useState(
+    product.categories[0]
+  );
+
+  const [mainImage, setMainImage] = useState(
+    product.categories[0].images[0]
+  );
+
   return (
-    <section className="pt-32 pb-20">
+    <section className="pt-32 pb-20 bg-gray-50">
 
       <div className="max-w-7xl mx-auto px-5">
 
-        {/* Title */}
-        <h1 className="text-5xl font-bold text-[#1A52A2]">
+        {/* Page Title */}
+        <h1 className="text-4xl font-bold text-[#1A52A2] mb-10">
           {product.title}
         </h1>
 
-        {/* Main Image */}
-        {product.image && (
-          <img
-            src={product.image}
-            alt={product.title}
-            className="w-full max-w-lg mt-10 rounded-3xl"
-          />
-        )}
+        <div className="grid lg:grid-cols-4 gap-8">
 
-        {/* Description */}
-        {product.description && (
-          <p className="mt-8 text-gray-600 leading-8">
-            {product.description}
-          </p>
-        )}
+          {/* Sidebar */}
+          <div className="bg-white rounded-3xl shadow p-6">
 
-        {/* Features */}
-        {product.features?.length > 0 && (
-
-          <div className="mt-10">
-
-            <h2 className="text-2xl font-bold mb-6">
-              Features
+            <h2 className="text-xl font-bold mb-6">
+              Categories
             </h2>
 
-            <ul className="space-y-3">
+            <div className="space-y-3">
 
-              {product.features.map((feature, index) => (
+              {product.categories.map((category, index) => (
 
-                <li key={index}>
-                  ✔ {feature}
-                </li>
-
-              ))}
-
-            </ul>
-
-          </div>
-
-        )}
-
-        {/* Sub Categories */}
-
-        {product.subCategories?.length > 0 && (
-
-          <>
-
-            <h2 className="text-3xl font-bold mt-20 mb-10">
-              Products
-            </h2>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-              {product.subCategories.map((item) => (
-
-                <div
-                  key={item.slug}
-                  className="bg-white rounded-3xl overflow-hidden shadow-lg border hover:shadow-xl duration-300"
+                <button
+                  key={index}
+                  onClick={() => {
+                    setSelectedCategory(category);
+                    setMainImage(category.images[0]);
+                  }}
+                  className="w-full text-left p-4 rounded-xl border hover:bg-[#1A52A2] hover:text-white duration-300"
                 >
-
-                  {/* Image */}
-
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-64 object-cover"
-                  />
-
-                  {/* Content */}
-
-                  <div className="p-6">
-
-                    <h3 className="text-xl font-bold mb-3">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-sm text-gray-600 mb-5 line-clamp-2">
-                      {item.shortDescription}
-                    </p>
-
-                    <Link
-                      href={`/products/${product.slug}/${item.slug}`}
-                    >
-                      <button
-                        className="bg-[#DA1F28] text-white px-5 py-3 rounded-full font-semibold hover:bg-red-700 duration-300"
-                      >
-                        View Product
-                      </button>
-                    </Link>
-
-                  </div>
-
-                </div>
+                  {category.name}
+                </button>
 
               ))}
 
             </div>
 
-          </>
+          </div>
 
-        )}
+          {/* Right Side */}
+          <div className="lg:col-span-3 bg-white rounded-3xl shadow p-8">
+
+            {/* Main Image */}
+            <img
+              src={mainImage}
+              alt=""
+              className="w-full h-[500px] object-contain rounded-3xl"
+            />
+
+            {/* Thumbnail Images */}
+            <div className="flex gap-4 flex-wrap mt-6">
+
+              {selectedCategory.images.map((image, index) => (
+
+                <img
+                  key={index}
+                  src={image}
+                  alt=""
+                  onClick={() => setMainImage(image)}
+                  className="w-24 h-24 object-cover rounded-xl border cursor-pointer hover:border-red-500"
+                />
+
+              ))}
+
+            </div>
+
+            {/* Product Name */}
+            <h2 className="text-3xl font-bold text-[#1A52A2] mt-10">
+              {selectedCategory.name}
+            </h2>
+
+            {/* Description */}
+            <p className="mt-5 text-gray-600 leading-8">
+              {selectedCategory.description}
+            </p>
+
+            {/* Enquiry Button */}
+            <a
+              href="https://wa.me/917304251133"
+              target="_blank"
+              className="inline-block mt-8 px-8 py-4 bg-[#DA1F28] text-white rounded-full"
+            >
+              Enquiry Now
+            </a>
+
+          </div>
+
+        </div>
 
       </div>
 
