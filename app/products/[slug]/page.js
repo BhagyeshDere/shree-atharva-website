@@ -41,26 +41,31 @@ export default function ProductPage({ params }) {
           {/* Sidebar */}
           <div className="bg-white rounded-3xl shadow p-6">
 
-            <h2 className="text-xl font-bold mb-6">
+            <h2 className="text-xl font-bold mb-6 text-gray-800">
               Categories
             </h2>
 
             <div className="space-y-3">
 
-              {product.categories.map((category, index) => (
-
-                <button
-                  key={index}
-                  onClick={() => {
-                    setSelectedCategory(category);
-                    setMainImage(category.images[0]);
-                  }}
-                  className="w-full text-left p-4 rounded-xl border hover:bg-[#1A52A2] hover:text-white duration-300"
-                >
-                  {category.name}
-                </button>
-
-              ))}
+              {product.categories.map((category, index) => {
+                const isSelected = selectedCategory.name === category.name;
+                return (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setSelectedCategory(category);
+                      setMainImage(category.images[0]);
+                    }}
+                    className={`w-full text-left p-4 rounded-xl border font-medium transition-all duration-300 ${
+                      isSelected
+                        ? "bg-[#1A52A2] text-white border-[#1A52A2] shadow-md shadow-blue-900/10"
+                        : "bg-white text-gray-600 border-gray-100 hover:bg-gray-50 hover:text-[#1A52A2]"
+                    }`}
+                  >
+                    {category.name}
+                  </button>
+                );
+              })}
 
             </div>
 
@@ -69,27 +74,34 @@ export default function ProductPage({ params }) {
           {/* Right Side */}
           <div className="lg:col-span-3 bg-white rounded-3xl shadow p-8">
 
-            {/* Main Image */}
-            <img
-              src={mainImage}
-              alt=""
-              className="w-full h-[500px] object-contain rounded-3xl"
-            />
+            {/* Main Image Viewport - Reduced height subtly across breakpoints */}
+            <div className="w-full h-[280px] sm:h-[340px] md:h-[400px] rounded-3xl overflow-hidden flex items-center justify-center group relative cursor-zoom-in">
+              <img
+                src={mainImage}
+                alt=""
+                className="w-full h-full object-contain rounded-3xl transition-transform duration-500 ease-out group-hover:scale-125 origin-center"
+              />
+            </div>
 
             {/* Thumbnail Images */}
             <div className="flex gap-4 flex-wrap mt-6">
 
-              {selectedCategory.images.map((image, index) => (
-
-                <img
-                  key={index}
-                  src={image}
-                  alt=""
-                  onClick={() => setMainImage(image)}
-                  className="w-24 h-24 object-cover rounded-xl border cursor-pointer hover:border-red-500"
-                />
-
-              ))}
+              {selectedCategory.images.map((image, index) => {
+                const isCurrentMain = mainImage === image;
+                return (
+                  <img
+                    key={index}
+                    src={image}
+                    alt=""
+                    onClick={() => setMainImage(image)}
+                    className={`w-24 h-24 object-cover rounded-xl border cursor-pointer transition-all duration-200 ${
+                      isCurrentMain 
+                        ? "border-[#DA1F28] ring-2 ring-[#DA1F28]/10 shadow-sm" 
+                        : "border-gray-200 hover:border-[#1A52A2]"
+                    }`}
+                  />
+                );
+              })}
 
             </div>
 
@@ -105,9 +117,8 @@ export default function ProductPage({ params }) {
 
             {/* Enquiry Button */}
             <a
-              href="https://wa.me/917304251133"
-              target="_blank"
-              className="inline-block mt-8 px-8 py-4 bg-[#DA1F28] text-white rounded-full"
+              href="/contact"
+              className="inline-block mt-8 px-8 py-4 bg-[#DA1F28] text-white font-semibold rounded-full shadow-lg shadow-red-600/10 hover:bg-[#b8161e] hover:shadow-xl hover:shadow-red-600/20 active:scale-[0.99] transition-all duration-300"
             >
               Enquiry Now
             </a>

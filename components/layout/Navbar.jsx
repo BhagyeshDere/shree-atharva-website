@@ -38,7 +38,6 @@ const navLinks = [
       { name: "U Clamp", href: "/products/u-clamp" },
       { name: "Valves", href: "/products/valves" },
       { name: "Wrapping Coating Material", href: "/products/wrapping-coating-material" },
-     
     ]
   },
   { name: "Services", href: "/services" },
@@ -137,13 +136,13 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute left-1/2 -translate-x-1/2 mt-1 w-[32rem] bg-white border border-slate-100 rounded-2xl shadow-xl p-4 z-[10000] grid grid-cols-2 gap-x-2 max-h-[70vh] overflow-y-auto no-scrollbar"
+                        className="absolute left-1/2 -translate-x-1/2 mt-1 w-[62rem] bg-white border border-slate-100 rounded-2xl shadow-xl p-8 z-[10000] grid grid-cols-4 gap-x-5 gap-y-1.5 h-auto max-h-none overflow-visible"
                       >
                         {link.dropdown.map((subLink) => (
                           <Link
                             key={subLink.name}
                             href={subLink.href}
-                            className="block px-4 py-2 text-[11px] font-bold text-slate-600 hover:text-[#1A52A2] hover:bg-[#1A52A2]/5 rounded-xl transition-all truncate"
+                            className="block px-3 py-2.5 text-[14px] font-bold tracking-tight text-slate-700 antialiased hover:text-[#1A52A2] hover:bg-[#1A52A2]/5 rounded-xl transition-all break-words leading-tight duration-200"
                           >
                             {subLink.name}
                           </Link>
@@ -258,7 +257,7 @@ export default function Navbar() {
                               animate={{ height: "auto", opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
                               transition={{ duration: 0.25 }}
-                              className="overflow-hidden pl-4 bg-slate-50/50 rounded-xl mt-1 max-h-[40vh] overflow-y-auto no-scrollbar"
+                              className="overflow-hidden pl-2 bg-slate-50/50 rounded-xl mt-1 max-h-[48vh] overflow-y-auto no-scrollbar"
                             >
                               {link.dropdown.map((subLink) => (
                                 <Link 
@@ -270,7 +269,7 @@ export default function Navbar() {
                                   }}
                                   className="flex items-center justify-between py-2.5 px-4 rounded-xl hover:text-[#1A52A2] transition-all"
                                 >
-                                  <span className="text-xs font-bold text-slate-600">
+                                  <span className="text-[14px] font-bold tracking-tight text-slate-600 antialiased">
                                     {subLink.name}
                                   </span>
                                   <ChevronRight size={14} className="text-slate-300" />
