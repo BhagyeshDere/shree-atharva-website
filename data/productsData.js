@@ -133,7 +133,6 @@ const productsData = [
           "/images/products/canvas-hose/7.jpg",
         ]
       },
-      
        {
         name: "Coupling",
         description: "Heavy-duty synthetic delivery and canvas hose end coupling hardware matching global standard specifications. Machined for instant, reliable interlocking under critical emergency response timelines to prevent sudden fluid pressure loss.",
@@ -151,7 +150,6 @@ const productsData = [
     slug: "fire-extinguisher",
     title: "Fire Extinguisher",
     categories: [
-
       {
         name: "Fire Extinguisher",
         description: "AQUA automatic self-activating rapid reaction fire suppression ball device. Triggers automatically within seconds of direct contact with open flame, dispersing specialized dry chemical powders to flood and suppress localized Class A, B, and C hazard areas.",
@@ -165,7 +163,6 @@ const productsData = [
                         "/images/products/fire-extinguisher/15.jpg",
         ]
       },
-
       {
         name: "Fire Extinguisher Spares",
         description: "High-performance spare component replacement kits including pressure gauges, safety pins, discharge hoses, wall brackets, and internal siphon tubes engineered for immediate system restoration and absolute safety enforcement.",
@@ -179,8 +176,6 @@ const productsData = [
           "/images/products/fire-extinguisher/fire-extinguisher-spares/27.jpg",
         ]
       },
-      
-     
     ]
   },
   {
@@ -195,12 +190,7 @@ const productsData = [
            "/images/products/fire-inlet/standard-inlet/2.jpg",
            "/images/products/fire-inlet/standard-inlet/3.jpg",
            "/images/products/fire-inlet/standard-inlet/4.jpg",
-           "/images/products/fire-inlet/standard-inlet/5.jpg"
-           
-
-
-           
-
+           "/images/products/fire-inlet/standard-inlet/5.jpg" 
         ]
       }
     ]
@@ -642,7 +632,6 @@ const productsData = [
                         "/images/products/u-clamp/15.jpg",
                                  "/images/products/u-clamp/20.jpg",
                                    "/images/products/u-clamp/21.jpg"
-
         ]
       }
     ]
@@ -792,5 +781,4 @@ const productsData = [
     ]
   }
 ];
-
 export default productsData;
