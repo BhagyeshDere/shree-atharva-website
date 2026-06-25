@@ -180,8 +180,8 @@ export default function Navbar() {
 
         {/* Mobile Toggle Button */}
         <div className="lg:hidden flex items-center gap-2">
-          {/* Updated Mobile Quick Call */}
-          <a href="tel:+917304251133" className="p-2 text-[#DA1F28] bg-red-50 rounded-full md:hidden">
+          {/* Mobile Quick Call */}
+          <a href="tel:+917304251133" className="p-2 text-[#DA1F28] bg-red-50 rounded-full">
             <Phone size={18} fill="currentColor" />
           </a>
           <button 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { MapPin, Send } from "lucide-react";
 import clientsData from "@/data/clientsData";
 
@@ -11,12 +11,20 @@ import ClientsTable from "@/components/clients/ClientsTable";
 export default function ClientsPage() {
   const [selected, setSelected] = useState("All");
 
-  const filteredClients =
-    selected === "All"
+  // Dynamically extract unique categories from clientsData to support any new additions automatically
+  const categories = useMemo(() => {
+    const uniqueCategories = new Set(clientsData.map((client) => client.category));
+    return ["All", ...Array.from(uniqueCategories)];
+  }, []);
+
+  // Safe fallback if 'selected' happens to be a category that no longer exists
+  const activeSelection = categories.includes(selected) ? selected : "All";
+
+  const filteredClients = useMemo(() => {
+    return activeSelection === "All"
       ? clientsData
-      : clientsData.filter(
-          (client) => client.category === selected
-        );
+      : clientsData.filter((client) => client.category === activeSelection);
+  }, [activeSelection]);
 
   return (
     <>
@@ -28,8 +36,9 @@ export default function ClientsPage() {
           {/* TIGHTENED SPACING BETWEEN FILTERS AND TABLE */}
           <div className="mt-8">
             <ClientsFilters
-              selected={selected}
+              selected={activeSelection}
               setSelected={setSelected}
+              categories={categories} // Passed down to let the component render filters dynamically
             />
           </div>
 
