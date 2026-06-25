@@ -84,63 +84,13 @@ const productsData = [
         name: "Alarm System",
         description: "High-fidelity intelligent addressable detector common base designed for seamless communication integration with primary fire alarm control panels. Features robust termination terminals and a low-profile twist-lock mechanism for quick sensor head deployment.",
         images: [
-          "/images/products/alarm-system/1.jpg",
-            "/images/products/alarm-system/2.jpg",
               "/images/products/alarm-system/3.jpg",
-                "/images/products/alarm-system/4.jpg",
-                "/images/products/alarm-system/5.jpg",
-                "/images/products/alarm-system/6.jpg",
-                "/images/products/alarm-system/7.jpg",
-                "/images/products/alarm-system/8.jpg",
-                "/images/products/alarm-system/9.jpg",
                 "/images/products/alarm-system/10.jpg",
-                "/images/products/alarm-system/11.jpg",
-                "/images/products/alarm-system/12.jpg",
-                "/images/products/alarm-system/13.jpg",
-                "/images/products/alarm-system/14.jpg",
-                "/images/products/alarm-system/15.jpg",
-                "/images/products/alarm-system/16.jpg",
-                "/images/products/alarm-system/17.jpg",
-                "/images/products/alarm-system/18.jpg",
-                "/images/products/alarm-system/19.jpg",
-                "/images/products/alarm-system/20.jpg",
-                 "/images/products/alarm-system/21.jpg",
-                  "/images/products/alarm-system/22.jpg",
-                   "/images/products/alarm-system/23.jpg",
-                    "/images/products/alarm-system/24.jpg",
-                     "/images/products/alarm-system/25.jpg",
                       "/images/products/alarm-system/26.jpg",
-                       "/images/products/alarm-system/27.jpg",
-                        "/images/products/alarm-system/28.jpg",
-                         "/images/products/alarm-system/29.jpg",
-                          "/images/products/alarm-system/30.jpg",
-                           "/images/products/alarm-system/31.jpg",
-                            "/images/products/alarm-system/32.jpg",
-                             "/images/products/alarm-system/33.jpg",
-                              "/images/products/alarm-system/34.jpg",
-                               "/images/products/alarm-system/35.jpg",
                                 "/images/products/alarm-system/36.jpg",
                                  "/images/products/alarm-system/37.jpg",
-                                  "/images/products/alarm-system/38.jpg",
-                                   "/images/products/alarm-system/39.jpg",
-                                    "/images/products/alarm-system/40.jpg",
-                                     "/images/products/alarm-system/41.jpg",
-                                      "/images/products/alarm-system/42.jpg",
-                                       "/images/products/alarm-system/43.jpg",
                                         "/images/products/alarm-system/44.jpg",
-                                         "/images/products/alarm-system/45.jpg",
-                                           "/images/products/alarm-system/46.jpg",
-                                             "/images/products/alarm-system/47.jpg",
-                                               "/images/products/alarm-system/48.jpg",
-                                                 "/images/products/alarm-system/49.jpg",
-                                                   "/images/products/alarm-system/50.jpg",
-                                                     "/images/products/alarm-system/51.jpg",
-                                                       "/images/products/alarm-system/52.jpg",
-                                                         "/images/products/alarm-system/53.jpg",
-                                                           "/images/products/alarm-system/54.jpg",
-                                                           "/images/products/alarm-system/55.jpg",
-                                                           "/images/products/alarm-system/56.jpg",
-                          
+                                                           "/images/products/alarm-system/55.jpg",                     
         ]
       },
       
@@ -161,9 +111,6 @@ const productsData = [
           "/images/products/branch-pipes/standard-branch-pipe/5.jpg",
           "/images/products/branch-pipes/standard-branch-pipe/6.jpg",
           "/images/products/branch-pipes/standard-branch-pipe/7.jpg",
-          "/images/products/branch-pipes/standard-branch-pipe/8.jpg",
-          "/images/products/branch-pipes/standard-branch-pipe/9.jpg",
-          "/images/products/branch-pipes/standard-branch-pipe/10.jpg"
         ]
       }
     ]
@@ -184,9 +131,6 @@ const productsData = [
           "/images/products/canvas-hose/5.jpg",
           "/images/products/canvas-hose/6.jpg",
           "/images/products/canvas-hose/7.jpg",
-          "/images/products/canvas-hose/8.jpg",
-          "/images/products/canvas-hose/9.jpg",
-          "/images/products/canvas-hose/10.jpg"
         ]
       },
       
@@ -195,11 +139,8 @@ const productsData = [
         description: "Heavy-duty synthetic delivery and canvas hose end coupling hardware matching global standard specifications. Machined for instant, reliable interlocking under critical emergency response timelines to prevent sudden fluid pressure loss.",
         images: [
           "/images/products/canvas-hose/coupling/1.jpg",
-          "/images/products/canvas-hose/coupling/2.jpg",
           "/images/products/canvas-hose/coupling/3.jpg",
-          "/images/products/canvas-hose/coupling/4.jpg",
           "/images/products/canvas-hose/coupling/5.jpg",
-          "/images/products/canvas-hose/coupling/6.jpg",
           "/images/products/canvas-hose/coupling/7.jpg",
           "/images/products/canvas-hose/coupling/8.jpg"
         ]
@@ -218,19 +159,10 @@ const productsData = [
           "/images/products/fire-extinguisher/1.jpg",
            "/images/products/fire-extinguisher/2.jpg",
             "/images/products/fire-extinguisher/3.jpg",
-             "/images/products/fire-extinguisher/4.jpg",
-              "/images/products/fire-extinguisher/5.jpg",
-               "/images/products/fire-extinguisher/6.jpg",
-                "/images/products/fire-extinguisher/7.jpg",
                  "/images/products/fire-extinguisher/8.jpg",
                   "/images/products/fire-extinguisher/9.jpg",
-                   "/images/products/fire-extinguisher/10.jpg",
-                    "/images/products/fire-extinguisher/11.jpg",
-                     "/images/products/fire-extinguisher/12.jpg",
-                      "/images/products/fire-extinguisher/13.jpg",
                        "/images/products/fire-extinguisher/14.jpg",
                         "/images/products/fire-extinguisher/15.jpg",
-                         "/images/products/fire-extinguisher/16.jpg"
         ]
       },
 
@@ -240,30 +172,10 @@ const productsData = [
         images: [
           "/images/products/fire-extinguisher/fire-extinguisher-spares/1.jpg",
           "/images/products/fire-extinguisher/fire-extinguisher-spares/2.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/3.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/4.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/5.jpg",
           "/images/products/fire-extinguisher/fire-extinguisher-spares/6.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/7.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/8.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/9.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/10.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/11.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/12.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/13.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/14.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/15.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/16.jpg",
           "/images/products/fire-extinguisher/fire-extinguisher-spares/17.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/18.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/19.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/20.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/21.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/22.jpg",
           "/images/products/fire-extinguisher/fire-extinguisher-spares/23.jpg",
           "/images/products/fire-extinguisher/fire-extinguisher-spares/24.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/25.jpg",
-          "/images/products/fire-extinguisher/fire-extinguisher-spares/26.jpg",
           "/images/products/fire-extinguisher/fire-extinguisher-spares/27.jpg",
         ]
       },
@@ -302,8 +214,6 @@ const productsData = [
         description: "High-sensitivity pipeline fluid flow tracking relay switch mechanism designed to detect automatic sprinkler activation. Sends immediate electronic telemetry to the central fire panel upon sensing constant water movement within monitored pipeline loops.",
         images: [
           "/images/products/flow-switch/1.jpg",
-            "/images/products/flow-switch/2.jpg",
-              "/images/products/flow-switch/3.jpg",
                 "/images/products/flow-switch/4.jpg",
                   "/images/products/flow-switch/5.jpg",
                     "/images/products/flow-switch/6.jpg"
@@ -422,16 +332,7 @@ const productsData = [
           "/images/products/hose-reel-drum/1.jpg",
             "/images/products/hose-reel-drum/2.jpg",
               "/images/products/hose-reel-drum/3.jpg",
-                "/images/products/hose-reel-drum/4.jpg",
-                  "/images/products/hose-reel-drum/5.jpg",
-                    "/images/products/hose-reel-drum/6.jpg",
-                      "/images/products/hose-reel-drum/7.jpg",
-                        "/images/products/hose-reel-drum/8.jpg",
                           "/images/products/hose-reel-drum/9.jpg",
-                            "/images/products/hose-reel-drum/10.jpg",
-                              "/images/products/hose-reel-drum/11.jpg",
-                                "/images/products/hose-reel-drum/12.jpg",
-                                "/images/products/hose-reel-drum/13.jpg",
                                   "/images/products/hose-reel-drum/14.jpg",
                                   "/images/products/hose-reel-drum/15.jpg"
         ]
@@ -449,17 +350,9 @@ const productsData = [
           "/images/products/hydrant-spares/1.jpg",
            "/images/products/hydrant-spares/2.jpg",
             "/images/products/hydrant-spares/3.jpg",
-             "/images/products/hydrant-spares/4.jpg",
-              "/images/products/hydrant-spares/5.jpg",
-               "/images/products/hydrant-spares/6.jpg",
-                "/images/products/hydrant-spares/7.jpg",
                  "/images/products/hydrant-spares/8.jpg",
                   "/images/products/hydrant-spares/9.jpg",
-                   "/images/products/hydrant-spares/10.jpg",
-                    "/images/products/hydrant-spares/11.jpg",
                      "/images/products/hydrant-spares/12.jpg",
-                      "/images/products/hydrant-spares/13.jpg",
-                       "/images/products/hydrant-spares/14.jpg",
                         "/images/products/hydrant-spares/15.jpg"
         ]
       }
@@ -475,18 +368,10 @@ const productsData = [
         images: [
           "/images/products/hydrant-valve/1.jpg",
            "/images/products/hydrant-valve/2.jpg",
-            "/images/products/hydrant-valve/3.jpg",
-             "/images/products/hydrant-valve/4.jpg",
               "/images/products/hydrant-valve/5.jpg",
-               "/images/products/hydrant-valve/6.jpg",
-                "/images/products/hydrant-valve/7.jpg",
                  "/images/products/hydrant-valve/8.jpg",
-                  "/images/products/hydrant-valve/9.jpg",
-                   "/images/products/hydrant-valve/10.jpg",
-                    "/images/products/hydrant-valve/11.jpg",
                      "/images/products/hydrant-valve/12.jpg",
                       "/images/products/hydrant-valve/13.jpg",
-                         "/images/products/hydrant-valve/14.jpg"
         ]
       }
     ]
@@ -553,17 +438,10 @@ const productsData = [
         images: [
           "/images/products/paint/1.jpg",
           "/images/products/paint/2.jpg",
-          "/images/products/paint/3.jpg",
-          "/images/products/paint/4.jpg",
-          "/images/products/paint/5.jpg",
           "/images/products/paint/6.jpg",
           "/images/products/paint/7.jpg",
-          "/images/products/paint/8.jpg",
-          "/images/products/paint/9.jpg",
-          "/images/products/paint/10.jpg",
           "/images/products/paint/11.jpg",
           "/images/products/paint/12.jpg",
-        
         ]
       }
     ]
@@ -624,8 +502,6 @@ const productsData = [
           "/images/products/Pumps/1.jpg",
            "/images/products/Pumps/2.jpg",
             "/images/products/Pumps/3.jpg",
-             "/images/products/Pumps/4.jpg",
-              "/images/products/Pumps/5.jpg",
                "/images/products/Pumps/6.jpg",
                 "/images/products/Pumps/7.jpg",
                  "/images/products/Pumps/8.jpg"
@@ -673,18 +549,9 @@ const productsData = [
           "/images/products/sign-board/1.jpg",
            "/images/products/sign-board/2.jpg",
             "/images/products/sign-board/3.jpg",
-             "/images/products/sign-board/4.jpg",
-              "/images/products/sign-board/5.jpg",
-               "/images/products/sign-board/6.jpg",
                 "/images/products/sign-board/7.jpg",
                  "/images/products/sign-board/8.jpg",
-                  "/images/products/sign-board/9.jpg",
-                   "/images/products/sign-board/10.jpg",
-                    "/images/products/sign-board/11.jpg",
-                     "/images/products/sign-board/12.jpg",
                       "/images/products/sign-board/13.jpg",
-                       "/images/products/sign-board/14.jpg",
-                        "/images/products/sign-board/15.jpg",
                          "/images/products/sign-board/16.jpg"
         ]
       }
@@ -733,29 +600,11 @@ const productsData = [
         description: "Comprehensive replacement catalog featuring thermal-sensitive replacement glass bulbs, chemical-grade seals, custom deflector shields, and protective cages engineered to keep fire sprinkler systems working efficiently.",
         images: [
           "/images/products/sprinkler/sprinkler-spares/1.jpg",
-          "/images/products/sprinkler/sprinkler-spares/2.jpg",
-          "/images/products/sprinkler/sprinkler-spares/3.jpg",
           "/images/products/sprinkler/sprinkler-spares/4.jpg",
-          "/images/products/sprinkler/sprinkler-spares/5.jpg",
-          "/images/products/sprinkler/sprinkler-spares/6.jpg",
-          "/images/products/sprinkler/sprinkler-spares/7.jpg",
-          "/images/products/sprinkler/sprinkler-spares/8.jpg",
           "/images/products/sprinkler/sprinkler-spares/9.jpg",
-          "/images/products/sprinkler/sprinkler-spares/10.jpg",
-          "/images/products/sprinkler/sprinkler-spares/11.jpg",
-          "/images/products/sprinkler/sprinkler-spares/12.jpg",
           "/images/products/sprinkler/sprinkler-spares/13.jpg",
-          "/images/products/sprinkler/sprinkler-spares/14.jpg",
-          "/images/products/sprinkler/sprinkler-spares/15.jpg",
           "/images/products/sprinkler/sprinkler-spares/16.jpg",
-          "/images/products/sprinkler/sprinkler-spares/17.jpg",
-          "/images/products/sprinkler/sprinkler-spares/18.jpg",
-          "/images/products/sprinkler/sprinkler-spares/19.jpg",
-          "/images/products/sprinkler/sprinkler-spares/20.jpg",
-          "/images/products/sprinkler/sprinkler-spares/21.jpg",
           "/images/products/sprinkler/sprinkler-spares/22.jpg",
-          "/images/products/sprinkler/sprinkler-spares/23.jpg",
-          "/images/products/sprinkler/sprinkler-spares/24.jpg",
           "/images/products/sprinkler/sprinkler-spares/25.jpg"
         ]
       }
@@ -771,12 +620,8 @@ const productsData = [
         images: [
           "/images/products/thermoplastic-hose/1.jpg",
           "/images/products/thermoplastic-hose/2.jpg",
-          "/images/products/thermoplastic-hose/3.jpg",
-          "/images/products/thermoplastic-hose/4.jpg",
           "/images/products/thermoplastic-hose/5.jpg",
           "/images/products/thermoplastic-hose/6.jpg",
-          "/images/products/thermoplastic-hose/7.jpg",
-          "/images/products/thermoplastic-hose/8.jpg",
           "/images/products/thermoplastic-hose/9.jpg",
           "/images/products/thermoplastic-hose/10.jpg"
         ]
@@ -793,23 +638,8 @@ const productsData = [
         images: [
           "/images/products/u-clamp/1.jpg",
            "/images/products/u-clamp/2.jpg",
-            "/images/products/u-clamp/3.jpg",
-             "/images/products/u-clamp/4.jpg",
-              "/images/products/u-clamp/5.jpg",
-               "/images/products/u-clamp/6.jpg",
-                "/images/products/u-clamp/7.jpg",
-                 "/images/products/u-clamp/8.jpg",
                   "/images/products/u-clamp/9.jpg",
-                   "/images/products/u-clamp/10.jpg",
-                    "/images/products/u-clamp/11.jpg",
-                     "/images/products/u-clamp/12.jpg",
-                      "/images/products/u-clamp/13.jpg",
-                       "/images/products/u-clamp/14.jpg",
                         "/images/products/u-clamp/15.jpg",
-                         "/images/products/u-clamp/16.jpg",
-                           "/images/products/u-clamp/17.jpg",
-                             "/images/products/u-clamp/18.jpg",
-                               "/images/products/u-clamp/19.jpg",
                                  "/images/products/u-clamp/20.jpg",
                                    "/images/products/u-clamp/21.jpg"
 

@@ -127,7 +127,7 @@ export default function Footer() {
           {/* Column 3: Contact Details (Pune) */}
           <div className="text-center sm:text-left">
             <h3 className="text-lg font-bold mb-6 md:mb-8 relative inline-block">
-              Corporate Office
+              Registered Office
               <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 w-8 h-1 bg-[#1A52A2]" />
             </h3>
             <div className="space-y-5">
@@ -143,7 +143,7 @@ export default function Footer() {
               </div>
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 group">
                 <Mail className="w-5 h-5 text-[#DA1F28] shrink-0" />
-                <a href="mailto:atharvaent101@gmail.com" className="text-slate-400 text-sm hover:text-white transition-colors underline-offset-4 hover:underline break-all sm:break-normal">atharvaent101@gmail.com</a>
+                <a href="mailto:sales@shreeatharva.com" className="text-slate-400 text-sm hover:text-white transition-colors underline-offset-4 hover:underline break-all sm:break-normal">sales@shreeatharva.com</a>
               </div>
             </div>
           </div>
@@ -167,7 +167,7 @@ export default function Footer() {
               </div>
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3">
                 <Mail className="w-5 h-5 text-[#DA1F28] shrink-0" />
-                <a href="mailto:atharvaent101@gmail.com" className="text-slate-400 text-sm hover:text-white transition-colors underline-offset-4 hover:underline break-all sm:break-normal">atharvaent101@gmail.com</a>
+                <a href="mailto:sales@shreeatharva.com" className="text-slate-400 text-sm hover:text-white transition-colors underline-offset-4 hover:underline break-all sm:break-normal">sales@shreeatharva.com</a>
               </div>
             </div>
           </div>

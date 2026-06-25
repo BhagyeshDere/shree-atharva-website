@@ -112,7 +112,7 @@ export default function Contact() {
       type: "Main Hub",
       address: "J-308, 2nd Floor, Mega Center, Pune - Solapur Road, Hadapsar, Pune - 411028",
       phone: "+91 7304251133",
-      email: "atharvaent101@gmail.com",
+      email: "sales@shreeatharva.com",
       color: "bg-[#f0f4fa] border-l-[6px] border-l-[#1A52A2] border-y-slate-200 border-r-slate-200",
       accent: "#1A52A2"
     },
@@ -121,7 +121,7 @@ export default function Contact() {
       type: "Service Node",
       address: "Road no 3, Vyankatesh Nagar, Ambajogai Road, Latur - 413512",
       phone: "+91 8484003636",
-      email: "atharvaent101@gmail.com",
+      email: "sales@shreeatharva.com",
       color: "bg-[#fef2f2] border-l-[6px] border-l-[#DA1F28] border-y-slate-200 border-r-slate-200",
       accent: "#DA1F28"
     }
